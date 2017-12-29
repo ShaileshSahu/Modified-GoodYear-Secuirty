@@ -20,14 +20,21 @@
   <head>
     <meta charset="utf-8">
     <title>Black Label Admin</title>
+    <meta name="author" content="Srinu Basava">
     <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
-
+    <meta name="description" content="Black Label Admin Admin UI">
+    <meta name="keywords" content="Black Label Admin, Admin UI, Admin Dashboard, Srinu Basava">
+    <script src="js/html5-trunk.js"></script>
     <link href="icomoon/style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <!--[if lte IE 7]>
       <script src="css/icomoon-font/lte-ie7.js"></script>
     <![endif]-->
-    <link href="css/nvd-charts.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet">
+    <link href="css/wysiwyg/wysiwyg-color.css" rel="stylesheet">
+    <link href="css/timepicker.css" rel="stylesheet">
+    <link href="css/bootstrap-editable.css" rel="stylesheet">
+    <link href="css/select2.css" rel="stylesheet">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -130,8 +137,7 @@
               Dashboard
             </a>
           </li>
-          <li class="active">
-            <span class="current-arrow"></span>
+          <li>
             <a href="charts.html">
               <div class="icon">
                 <span class="fs1" aria-hidden="true" data-icon="&#xe097;"></span>
@@ -155,12 +161,13 @@
               Tables
             </a>
           </li>
-          <li>
-            <a href="Resgister.html">
+          <li class="active">
+            <span class="current-arrow"></span>
+            <a href="Register.html">
               <div class="icon">
                 <span class="fs1" aria-hidden="true" data-icon="&#xe0b8;"></span>
               </div>
-              Resgister
+              Register
             </a>
           </li>
           <li>
@@ -228,9 +235,12 @@
             <div class="navbar-inner">
               <div class="container">
                 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                  <span class="icon-bar">
+                  </span>
+                  <span class="icon-bar">
+                  </span>
+                  <span class="icon-bar">
+                  </span>
                 </a>
                 <div class="nav-collapse collapse navbar-responsive-collapse">
                   <ul class="nav">
@@ -247,7 +257,7 @@
                       <a href="tables.html">Tables</a>
                     </li>
                     <li>
-                      <a href="Resgister.html">Resgister</a>
+                      <a href="Register.html">Register</a>
                     </li>
                     <li>
                       <a href="ui-elements.html">UI Elements</a>
@@ -265,7 +275,7 @@
                       <a href="icons.html">Icons</a>
                     </li>
                     <li>
-                      <a href="MasterMasterLogin.html">MasterLogin</a>
+                      <a href="MasterLogin.html">MasterLogin</a>
                     </li>
                     <li>
                       <a href="error.html">404</a>
@@ -283,7 +293,7 @@
                   <a href="index.html"><span class="fs1" aria-hidden="true" data-icon="&#xe002;"></span> Dashboard</a>
                 </li>
                 <li>
-                  <a href="#">Graphs and Charts</a>
+                  <a href="#">Register Elements</a>
                 </li>
               </ul>
             </div>
@@ -291,17 +301,187 @@
 
           <br>
 
-        </div>
+
+
+
+          <form class="form-control no-margin" enctype="multipart/form-data" action="Registration_data.php" method="post">
+          <div class="row-fluid"  style="transform: translate(200px,0px); width:100%">
+            <div class="span6">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    <span class="fs1" aria-hidden="true" data-icon="&#xe023;"></span>Personal Details
+                  </div>
+                </div>
+                <div class="widget-body">
+
+                       <!-- name  -->
+                    <div class="control-group warning">
+                      <label class="control-label" for="your-name">
+                        Name
+                      </label>
+                      <div class="controls controls-row">
+                        <input class="span12" id="your-name" name="emp_name" type="text" placeholder="Employee Name">
+                        
+                      </div>
+                    </div>
+
+                    <!--  father name  -->
+                    <div class="control-group success">
+                      <label class="control-label" for="your-email">
+                        Father's name
+                      </label>
+                      <div class="controls">
+                        <input type="text" name="emp_father_name" id="your-email" class="span12" placeholder="Enter Father name"  />
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="DateOfBirthMonth">
+                        Date of birth
+                      </label>
+                      <div class="controls controls-row">
+                     <input type="date" name="emp_dob">
+                        </div></div>
+                    <!--   account no.  -->
+                    <div class="control-group success">
+                      <label class="control-label" for="accno">
+                        Account no:
+                      </label>
+                      <div class="controls">
+                        <input type="number" name="emp_account_no" id="accno" class="span12" placeholder="Enter Account no."  />
+                      </div>
+                    </div>
+                    <!--  ESIC no.  -->
+                    <div class="control-group success">
+                      <label class="control-label" for="esic">
+                        ESIC no:
+                      </label>
+                      <div class="controls">
+                        <input type="name" name="emp_esic_no" id="esic" class="span12" placeholder="Enter ESIC no."  />
+                      </div>
+                    </div>
+
+
+                    <div class="control-group">
+                      <label class="control-label">
+                        Gender
+                      </label>
+                      <div class="controls">
+                        <label class="checkbox inline">
+                          <input type="checkbox" value="male" name="emp_gender" checked>
+                          Male
+                        </label>
+                        <input type="checkbox" value="female" name="emp_gender" >
+                        <label class="checkbox inline">
+                          Female
+                        </label>
+
+
+
+                      </div>
+
+
+
+
+                    </div>
+
+ <div class="control-group success">
+                      <label class="control-label" for="uan">
+                      DESIGNATION
+                      </label>
+                      <div class="controls">
+                     
+                          
+                          <select name="emp_des">
+                              <option value="S/G">S/G</option>   <option value="Maid">Maid</option>   <option value="House Keeping">Keeping</option>
+                          </select>
+                      </div>
+                    </div>
+                    
+                    <div class="control-group warning">
+                      <label class="control-label" for="uan">
+                     SITE NAME
+                      </label>
+                      <div class="controls">
+                     
+                          
+                          <select name="emp_zone">
+                              <option value="none">none</option> <option value="RML">RML</option>   <option value="INDIA GATE">India Gate</option>   <option value="CHSL Keeping">CHSL</option>
+                          </select>
+                      </div>
+                    </div>
+
+
+
+
+
+                    <div class="control-group success">
+                      <label class="control-label" for="uan">
+                        UAN  no:
+                      </label>
+                      <div class="controls">
+                        <input type="number" name="uan_no" id="uan" class="span12" placeholder="Enter UAN no."  />
+                      </div>
+                    </div>
+                    
+                    <div class="control-group success">
+                      <label class="control-label" for="uan">
+                        PF no:
+                      </label>
+                      <div class="controls">
+                        <input type="text" name="emp_pf_no" id="uan" class="span12" placeholder="Enter PF no."  />
+                      </div>
+                    </div>
+
+                    <hr />
+                    <!.. address ..>
+
+                    <div class="control-group success">
+                      <label class="control-label" for="address">
+                        Address:
+                      </label>
+                      <div class="controls">
+                        <input type="text" name="emp_address" id="address" class="span12" placeholder="Enter Address Here"/>
+                      </div>
+                    </div>
+                    
+                      <div class="control-group success">
+                      <label class="control-label" for="address">
+                       Phone/Mobile:
+                      </label>
+                      <div class="controls">
+                        <input type="number" name="emp_phn" id="emp_phn" class="span12" placeholder="Phone Number....."/>
+                      </div>
+                    </div>
+                  
+                  
+                    <hr/>
+
+                    <label for="photo">Upload Photo </label>
+                    <input type="file" name="emp_image" class="span12" id="photo" />
+
+<hr>
+
+
+                  <input type="submit" name="register" class="btn btn-small btn-danger pull-right" value="Register">
+                    <div class="clearfix"></div>
+
+                </div>
+              </div>
+            </div>
+
       </div>
-    </div>
-    <footer>
+      </form>
+          </div>
+        </div>
+        
+        </div>
+    <footer style="transform:translate(0px, 0px);">
       <p class="copyright">&copy; Black Label Admin 2013</p>
     </footer>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
-
-    <!-- Flot charts -->
 
   </body>
 </html>
