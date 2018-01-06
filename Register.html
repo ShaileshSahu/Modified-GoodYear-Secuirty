@@ -138,11 +138,11 @@
             </a>
           </li>
           <li>
-            <a href="charts.html">
+            <a href="Payment.php">
               <div class="icon">
                 <span class="fs1" aria-hidden="true" data-icon="&#xe097;"></span>
               </div>
-              Charts
+              Payment
             </a>
           </li>
           <li>
@@ -248,7 +248,7 @@
                       <a href="index.html">Dashboard</a>
                     </li>
                     <li>
-                      <a href="graphs.html">Charts</a>
+                      <a href="graphs.html">Payment</a>
                     </li>
                     <li>
                       <a href="View.html">View</a>
@@ -304,7 +304,7 @@
 
 
 
-          <form class="form-control no-margin" enctype="multipart/form-data" action="Registration_data.php" method="post">
+          <form class="form-control no-margin" enctype="multipart/form-data">
           <div class="row-fluid"  style="transform: translate(200px,0px); width:100%">
             <div class="span6">
               <div class="widget">
@@ -321,8 +321,8 @@
                         Name
                       </label>
                       <div class="controls controls-row">
-                        <input class="span12" id="your-name" name="emp_name" type="text" placeholder="Employee Name">
-                        
+                        <input class="span6" id="your-name" name="first" type="text" placeholder="First Name">
+                        <input class="span6 input-left-top-margins" name="last" type="text" placeholder="Last Name">
                       </div>
                     </div>
 
@@ -332,23 +332,129 @@
                         Father's name
                       </label>
                       <div class="controls">
-                        <input type="text" name="emp_father_name" id="your-email" class="span12" placeholder="Enter Father name"  />
+                        <input type="text" name="email" id="your-email" class="span12" placeholder="Enter Father name"  />
                       </div>
                     </div>
-                    <div class="control-group info">
+                    <div class="control-group">
                       <label class="control-label" for="DateOfBirthMonth">
                         Date of birth
                       </label>
                       <div class="controls controls-row">
-                     <input type="date" name="emp_dob">
-                        </div></div>
+                        <select id="DateOfBirthMonth" class="span4">
+                          <option>
+                            Month -
+                          </option>
+                          <option value="1">
+                            January
+                          </option>
+                          <option value="2">
+                            February
+                          </option>
+                          <option value="3">
+                            March
+                          </option>
+                          <option value="4">
+                            April
+                          </option>
+                          <option value="5">
+                            May
+                          </option>
+                          <option value="6">
+                            June
+                          </option>
+                          <option value="7">
+                            July
+                          </option>
+                          <option value="8">
+                            August
+                          </option>
+                          <option value="9">
+                            September
+                          </option>
+                          <option value="10">
+                            October
+                          </option>
+                          <option value="11">
+                            November
+                          </option>
+                          <option value="12">
+                            December
+                          </option>
+                        </select>
+                        <select name="DateOfBirth_Day"  class="span4 input-left-top-margins">
+                          <option>
+                            Day -
+                          </option>
+                          <option value="1">
+                            1
+                          </option>
+                          <option value="2">
+                            2
+                          </option>
+                          <option value="3">
+                            3
+                          </option>
+                          <option value="4">
+                            4
+                          </option>
+                          <option value="5">
+                            5
+                          </option>
+                          <option value="6">
+                            6
+                          </option>
+                          <option value="7">
+                            7
+                          </option>
+                          <option value="8">
+                            8
+                          </option>
+                          <option value="9">
+                            9
+                          </option>
+                        </select>
+
+                        <select name="DateOfBirth_Year" class="span4 input-left-top-margins">
+                          <option>
+                            Year -
+                          </option>
+                          <option value="2013">
+                            2011
+                          </option>
+                          <option value="2012">
+                            2010
+                          </option>
+                          <option value="2011">
+                            2011
+                          </option>
+                          <option value="2010">
+                            2010
+                          </option>
+                          <option value="2009">
+                            2009
+                          </option>
+                          <option value="2008">
+                            2008
+                          </option>
+                          <option value="2007">
+                            2007
+                          </option>
+                          <option value="2006">
+                            2006
+                          </option>
+                          <option value="2005">
+                            2005
+                          </option>
+                        </select>
+                      </div>
+                    </div>
                     <!--   account no.  -->
                     <div class="control-group success">
                       <label class="control-label" for="accno">
                         Account no:
                       </label>
                       <div class="controls">
-                        <input type="number" name="emp_account_no" id="accno" class="span12" placeholder="Enter Account no."  />
+                        <input type="text" name="accno" id="accno" class="span12" placeholder="Enter Account no."  />
                       </div>
                     </div>
                     <!--  ESIC no.  -->
@@ -357,7 +463,7 @@
                         ESIC no:
                       </label>
                       <div class="controls">
-                        <input type="name" name="emp_esic_no" id="esic" class="span12" placeholder="Enter ESIC no."  />
+                        <input type="text" name="esic" id="esic" class="span12" placeholder="Enter ESIC no."  />
                       </div>
                     </div>
 
@@ -368,10 +474,10 @@
                       </label>
                       <div class="controls">
                         <label class="checkbox inline">
-                          <input type="checkbox" value="male" name="emp_gender" checked>
+                          <input type="checkbox" value="male" checked>
                           Male
                         </label>
-                        <input type="checkbox" value="female" name="emp_gender" >
+                        <input type="checkbox" value="female" >
                         <label class="checkbox inline">
                           Female
                         </label>
@@ -380,36 +486,24 @@
 
                       </div>
 
+<br>
+                      <label class=" inline" for="designation">designation</label>
+
+                        <input type="text"  class="span12"id="designation" name="designation">
+
+
+
+
+
+
+
+
 
 
 
                     </div>
 
- <div class="control-group success">
-                      <label class="control-label" for="uan">
-                      DESIGNATION
-                      </label>
-                      <div class="controls">
-                     
-                          
-                          <select name="emp_des">
-                              <option value="S/G">S/G</option>   <option value="Maid">Maid</option>   <option value="House Keeping">Keeping</option>
-                          </select>
-                      </div>
-                    </div>
-                    
-                    <div class="control-group warning">
-                      <label class="control-label" for="uan">
-                     SITE NAME
-                      </label>
-                      <div class="controls">
-                     
-                          
-                          <select name="emp_zone">
-                              <option value="none">none</option> <option value="RML">RML</option>   <option value="INDIA GATE">India Gate</option>   <option value="CHSL Keeping">CHSL</option>
-                          </select>
-                      </div>
-                    </div>
+
 
 
 
@@ -420,16 +514,7 @@
                         UAN  no:
                       </label>
                       <div class="controls">
-                        <input type="number" name="uan_no" id="uan" class="span12" placeholder="Enter UAN no."  />
-                      </div>
-                    </div>
-                    
-                    <div class="control-group success">
-                      <label class="control-label" for="uan">
-                        PF no:
-                      </label>
-                      <div class="controls">
-                        <input type="text" name="emp_pf_no" id="uan" class="span12" placeholder="Enter PF no."  />
+                        <input type="text" name="uan" id="uan" class="span12" placeholder="Enter UAN no."  />
                       </div>
                     </div>
 
@@ -441,29 +526,37 @@
                         Address:
                       </label>
                       <div class="controls">
-                        <input type="text" name="emp_address" id="address" class="span12" placeholder="Enter Address Here"/>
+                        <input type="text" name="address" id="address" class="span12" placeholder="Enter Address Here"/>
                       </div>
                     </div>
-                    
-                      <div class="control-group success">
-                      <label class="control-label" for="address">
-                       Phone/Mobile:
-                      </label>
-                      <div class="controls">
-                        <input type="number" name="emp_phn" id="emp_phn" class="span12" placeholder="Phone Number....."/>
-                      </div>
+                    <div ><label for="zip">Zip Code</label>
+
+
+                    <input type="number" name="zip"  class="span6" id="zip" placeholder="Zip code" />
+
+                    <input type="text" name="city" class="span6" id="city" placeholder="City" />
+
+
+
+
                     </div>
-                  
-                  
+                    <div>
+                      <label for="contact"> Phone Number </label>
+                      <input type="tel" id="contact" class="span12" name="contact">
+
+
+
+                    </div>
                     <hr/>
 
                     <label for="photo">Upload Photo </label>
-                    <input type="file" name="emp_image" class="span12" id="photo" />
-
-<hr>
+                    <input type="file" name="photo" class="span12" id="photo" />
 
 
-                  <input type="submit" name="register" class="btn btn-small btn-danger pull-right" value="Register">
+
+
+
+                    <button type="submit" class="btn btn-info pull-right">Submit</button>
                     <div class="clearfix"></div>
 
                 </div>
@@ -472,11 +565,8 @@
 
       </div>
       </form>
-          </div>
-        </div>
-        
-        </div>
-    <footer style="transform:translate(0px, 0px);">
+    </div>
+    <footer style="transform:translate(0px, 150px);">
       <p class="copyright">&copy; Black Label Admin 2013</p>
     </footer>
 
