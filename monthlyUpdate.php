@@ -1,0 +1,138 @@
+<?php   include "./Database/Connection.php";
+  $nm =   $_REQUEST['nm'];
+?>
+
+<html>
+<head>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+  .form-style-8{
+      font-family: 'Open Sans Condensed', arial, sans;
+      width: 500px;
+      padding: 30px;
+      background: #FFFFFF;
+      margin: 50px auto;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+      -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+      -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+  }
+  .form-style-8 h2{
+      background: #4D4D4D;
+      text-transform: uppercase;
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #797979;
+      font-size: 18px;
+      font-weight: 100;
+      padding: 20px;
+      margin: -30px -30px 30px -30px;
+  }
+  .form-style-8 input[type="text"],
+  .form-style-8 input[type="date"],
+  .form-style-8 input[type="datetime"],
+  .form-style-8 input[type="email"],
+  .form-style-8 input[type="number"],
+  .form-style-8 input[type="search"],
+  .form-style-8 input[type="time"],
+  .form-style-8 input[type="url"],
+  .form-style-8 input[type="password"],
+  .form-style-8 textarea,
+  .form-style-8 select,
+  .form-style-8 input[type="month"]
+  {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      outline: none;
+      display: block;
+      width: 100%;
+      padding: 7px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      background: transparent;
+      margin-bottom: 10px;
+      font: 16px Arial, Helvetica, sans-serif;
+      height: 45px;
+  }
+  .form-style-8 textarea{
+      resize:none;
+      overflow: hidden;
+  }
+  .form-style-8 input[type="button"],
+  .form-style-8 input[type="submit"]{
+      -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+      -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+      box-shadow: inset 0px 1px 0px 0px #45D6D6;
+      background-color: #2CBBBB;
+      border: 1px solid #27A0A0;
+      display: inline-block;
+      cursor: pointer;
+      color: #FFFFFF;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 14px;
+      padding: 8px 18px;
+      text-decoration: none;
+      text-transform: uppercase;
+  }
+  .form-style-8 input[type="button"]:hover,
+  .form-style-8 input[type="submit"]:hover {
+      background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+      background-color:#34CACA;
+  }
+
+  input[type="submit"]{
+
+    width:100px;
+    height:50px;
+    margin-left: 180px;
+
+  }
+
+
+  </style>
+
+
+</head>
+
+<body>
+<form action="Details.php?nm=<?= $nm ?>" method="post" class="form-horizontal">
+
+<div class="form-style-8">
+  <h2>Monthly Updated</h2>
+ 
+    <h4 id="myModalLabel1">
+        Monthly Update ---->
+     </h4>
+     <c class="text-primary">  Zone:- </c></td>  <td><select name="zone">
+           <option value="south">South</option>
+           <option value="north">North</option>
+           <option value ="west">West</option>
+           <option value="east">East</option>
+
+         </select>
+
+         <label> Month:-<input id="bday-month" type="month" name="month"
+                       min="2018-01" max="2030-12"> </label>
+<br><br>
+
+                        <label>Working Days:-<input type="number" class="s" Placeholder="Working Days" name="wdays"></label>
+                       <label>Overtime Days :-<input type="number" class="" Placeholder="Overtime Days" name="overtime"> </label>
+                       <input type="submit" name="submit" class="" value="Update" />
+  </form>
+</div>
+
+
+
+
+<script type="text/javascript">
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+</script>
+</body>
+
+</html>
