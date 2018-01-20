@@ -161,6 +161,26 @@
             Modification of Sitename
            </a>
          </li>
+
+         <li>
+           <a href="create_monthly_database.php">
+             <div class="icon">
+               <span class="fs1" aria-hidden="true" data-icon="&#xe0b8;"></span>
+             </div>
+            Monthly Database
+           </a>
+         </li>
+
+         <li>
+           <a href="undo_table.php">
+             <div class="icon">
+               <span class="fs1" aria-hidden="true" data-icon="&#xe0b8;"></span>
+             </div>
+            Undo Table
+           </a>
+         </li>
+
+
        </ul>
      </div>
 

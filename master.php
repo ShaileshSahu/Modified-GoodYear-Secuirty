@@ -1,22 +1,40 @@
-<?php include("./Database/Connection.php"); ?>
-    </script>
+<?php include "./Database/Connection.php";?>
+<?php include "./Extra/pagination.php";?>
+ <?php error_reporting(0);
+ $pag = new pagination($data->Connect(),"select * from guard_info");
+ $zone=$_GET['emp_site_name'];
 
-    <style>
-      table
-        {
-            font-size: 8px;
-        }
-      </style>
-      <?php include "./Extra/Header.php" ;?>
 
-          <div class="ses-fluid">
+if(isset($_GET['search'])){
+  $month =$_GET['month'];
+  //$zone = $_GET['emp_site_name'];
+  $query =" select  emp_id , emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$month`) on id=emp_id";
+  //
+}
+else {
+  $query ="select  emp_id ,emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`2018-01`) on id=emp_id ";
+  //
+} //emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages
+
+
+$result = mysqli_query($data->Connect(),$query);
+
+if($result==null)
+die("not obtained");
+?>
+
+
+
+
+<?php include "./Extra/Header.php" ;?>
+          <div class="row-fluid">
             <div class="span12">
               <ul class="breadcrumb-beauty">
                 <li>
-                  <a href="index.html"><span class="fs1" aria-hidden="true" data-icon="&#xe002;"></span> Dashboard</a>
+                  <a href="Payment.php"><span class="fs1" aria-hidden="true" data-icon="&#xe002;"></span> Dashboard</a>
                 </li>
                 <li>
-                  <a href="#">Dashboard</a>
+                  <a href="#"> Payment <?=$zone?></a>
                 </li>
               </ul>
             </div>
@@ -24,182 +42,126 @@
 
           <br>
 
-   <section class="main-container">
-       <h3 class="pull-right text-info" style="opacity:.24;">Master Table</h3>
-       <br>   <br><hr>
-
-       <div class="span12">
-           <div class="widget">
-               <div class="widget-header">
-                   <div class="title">
-                      <b class="text-success">Search</b>
-                   </div>
-
-               </div>
-               <div class="widget-body">
-                 <form action="master.php" class="form form-horizontal" method="post">
-                      <div class="widget-body">
-                     <div class="input-append">
-                       <input class="span4 form-control" id="appendedInputButtons" type="text" name="info"  placeholder="Search by name, esic, month.........">
-                       <select class=" controls form-control span-2" name="field"><option>Select</option><option value="month">By Month</option><option value ="esic">By Esic Number</option>
-                       <option value="name">By Name</option>
-                       </select>
-                       <select class=" controls form-control span-2" name="z"><option>Zone</option><option value="south">South</option><option value ="east">East</option>
-                       <option value="west">West</option> <option value="north">North </option>
-                       </select>
-                       <input class="btn btn-sm btn-inverse span-2" type="submit" name="search" value="Search" />
-
-                     </div>
-                   </div>
-
-                 </form>
-               </div>
+          <!.. here Payment table ..>
 
 
 
+<!.. basic table here ..>
+<div class="row-fluid">
 
-           </div>
 
-       </div>
+  <div class="span12">
+    <div class="widget no-margin">
+      <div class="widget-header">
+        <div class="title">
+          <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Basic Payment:<?="hello"?> <i class="fa fa-list-alt"></i>-
+        </div>
+      </div>
+      <div class="widget-body">
+        <div id="dt_example" class="example_alt_pagination">
 
-       <table class="table table-striped table-hover table-bordered ">
+          <div class='widget'>
 
-           <thead>
-               <tr>
-                    <th>S.no</th>
-                <th>UAN</th>
-                <th>Employe</th>
-                <th>Father's Name</th>
-                <th>Designation</th>
-                <th>Account/Cheque No.</th>
-                <th>PF No.</th>
-                <th>Attendence</th>
-                <th>Rate of Wages</th>
-                <th>Overtime Rate</th>
-                <th>Overtime Attendence</th>
-                <th>ESIC</th>
-                <th>Site Name</th>
-                <th>Payable Wages</th>
-                <th>Overtime Amount</th>
+          <div class='widget-header'>
+          <div class='title '>Search  database for this month</div>
+          </div>
+
+          <div class='widget-body'>
+                    <form action='' method='' class="form-horizontal">
+          <div class="control-group inverse input-append">
+          <br>
+          &nbsp;<input type='month' min="2018-01" max="2030-01" class='input-xlarge' name='month' placeholder='june-18'>
+          <input type="hidden" name="emp_site_name" value="<?=$zone?>">
+          <input type='submit' class='btn btn-inverse' name="search">Search</button>
+          </div>
+
+                      </form>
+
+          </div>
+        </div>
+            <span class="text-success pull-right " style="font-size:25px;"><?php  echo $month; ?></span>
+
+          <table class="table  table-condensed table-striped table-hover table-bordered pull-left" id="data-table">
+            <thead>
+              <tr>
+                <th>S.no</th>
+                <th>Name </th>
+
+                <th> Site Name</th>
+                <th>Desig.</th>
+                <th>Account No.</th>
+                <th> ESIC No.</th>
+                <th> PF NO. </th>
+                <th>Workable Days</th>
+                <th>Rate of wages</th>
+                <th>Total Attendace</th>
+                <th>Wages Payable </th>
+                <th>OT Attend</th>
+                <th>OT Rate per Day</th>
+                <th>OT Amount</th>
                 <th>Total Amount</th>
-                <th>EPF</th>
-                <th>EPSIC AMOUNT</th>
-                <th>TOTAL DEDUCTION</th>
-                <th>TOTAL Payble</th>
-                <th>Signature</th>
-                <th>Update</th>
-                <th>Delete</th>
-               </tr>
+                <th>P.F</th>
+                <th>ESIC </th>
+                <th>Total deduction </th>
+                <th> Net Payable</th>
+                <th>Sign Of Employee</th>
+                <th>Del</th>
+              </tr>
+            </thead>
+                              <tbody>
 
-           </thead>
-
-           <tbody>
-
-
-
-               <?php
-               if(isset($_POST['search']))
-
-                {
-
-
-                  $info = $_POST['info'];
-                  $z =$_POST['z'];
-                //  $z = mysql_real_escape_string($z);
-                  echo $z;
-                  if($_POST['field'] =='name')
-                  {
-                  $query= "select * from  guard_info  join  (Select * from basic_slip_$z where emp_name like '%$info%')  as a on guard_info.emp_id = a.emp_id ";
-
-                  }
-                  else if( $_POST['field'] =='esic')
-                  {
-                      $query = "select * from  guard_info join  (Select * from basic_slip_" .$z."where emp_esic_no like '%$info%') as a on guard_info.emp_id = a.emp_id";
-                  }else
-                  {
-                      $query = "Select * from guard_info join (Select * from basic_slip_".$z."where emp_zone like '%$info%') as a on guard_info.emp_id = a.emp_id";
-                  }
-
-
-                  $result = mysqli_query($data->connect(),$query);
-                //  $n =  mysqli_num_rows($result);
-                  if($result == null)
-                    {
-
-                        ?>  <h3 style="transform:translate(-800px, 250px);"> <?php  echo("No Matching Content Found"); ?> </h3>
-                        <?php
-                    }
-
-
-                else{
-                      while($ses = mysqli_fetch_array($result))
-                  {
-                      ?>
-                         <tr>
-                      <td> <?= $ses['uan_no']; ?> </td>
-                      <td> <?= $ses['emp_name']; ?> </td>
-                      <td> <?= $ses['emp_father_name']; ?> </td>
-                      <td> <?= $ses['emp_designation']; ?> </td>
-                      <td> <?= $ses['emp_account_no']; ?> </td>
-                      <td> <?= $ses['emp_pf_no']; ?> </td>
-                      <td> <?= $ses['total_att']; ?> </td>
-                      <td> <?= $ses['rate_wages']; ?> </td>
-                      <td> <?= $ses['ot_rate']; ?> </td>
-                      <td> <?= $ses['overtime_attend']; ?> </td>
-                      <td> <?= $ses['emp_esic']; ?> </td>
-                      <td> <?= $ses['site_name']; ?> </td>
-                      <td> <?= $ses['wages_payable']; ?> </td>
-                      <td> <?= $ses['ot_amt']; ?> </td>
-                      <td> <?= $ses['total_amt']; ?> </td>
-                      <td> <?= $ses['pf']; ?> </td>
-                      <td> <?= $ses['total_ded']; ?> </td>
-                      <td> <?= $ses['net_pay']; ?> </td>
-
-                    </tr>
+                         <?php
+                         $no=1;
+                                 while($row = mysqli_fetch_array($result) )
+{?>
+                           <tr class="gradeX">
+                          <td><?= $no?></td>
+                          <td><?=$row['emp_name'] ?></td>
+                          <td><?=$row['emp_zone']?></td>
+                              <td><?= $row['emp_designation']?></td>
+                             <td ><?= $row['emp_account_no']?></td>
+                            <td><?= $row['emp_esic_no']?></td>
+                           <td><?= $row['emp_pf_no']?></td>
+                           <td>26</td>
 
 <?php
-                }
 
-               }
-}
-               else{
-                 $no =1 ;
+$rwages =$row['emp_rwages'];
+$rdays =$row['emp_wdays'];
+$odays= $row['emp_odays'];
+$owages=$row['emp_owages'];
+$total_payble = $rwages*$rdays;
+$overtime_payble = $owages*$odays;
+$complete_payble = $total_payble+$overtime_payble;
+$pf_amount = round((10.6/100)*$complete_payble,2);
+$esic_amount =round((1.74/100)*$complete_payble,2);
+$total_deduction = $pf_amount+$esic_amount;
+$payble = $complete_payble-$total_deduction;
+?>
+                           <td><?= $row['emp_rwages']?></td>
+                           <td><?= $row['emp_wdays']?></td>
+                           <td><?= $total_payble?></td>
+                           <td><?=$row['emp_odays']?></td>
+                           <td><?= $row['emp_owages']?></td>
+                           <td><?= $overtime_payble?></td>
+                           <td><?= $complete_payble?></td>
+                           <td><?= $pf_amount?></td>
+                           <td><?= $esic_amount?></td>
+                           <td><?= $total_payble?></td>
+                           <td><?= $payble?></td>
+                           <td> </td>
+                           <td><a role="button" href="Delete.php?emp_id=<?php echo $row['emp_id']; ?>" class="btn btn-small btn-danger">D </a></td>
 
-                $query2 = "select  * from guard_info join basic_slip_east on guard_info.emp_id = basic_slip_east.emp_id union
-                select  * from guard_info join basic_slip_west on guard_info.emp_id = basic_slip_west.emp_id   union
-                select  * from guard_info join basic_slip_south on guard_info.emp_id = basic_slip_south.emp_id union
-                select  * from guard_info join basic_slip_north on guard_info.emp_id = basic_slip_north.emp_id" ;
-
-                      $res = mysqli_query($data->connect(),$query2);
-                      echo "In else";
-
-                 while($ses = mysqli_fetch_array($res))
-             {
-                 ?>
-                 <tr>
-                  <td> <?= $no; ?>
-                 <td> <?= $ses['uan_no']; ?> </td>
-                 <td> <?= $ses['emp_name']; ?> </td>
-                 <td> <?= $ses['emp_father_name']; ?> </td>
-                 <td> <?= $ses['emp_designation']; ?> </td>
-                 <td> <?= $ses['emp_account_no']; ?> </td>
-                 <td> <?= $ses['emp_pf_no']; ?> </td>
-                 <td> <?= $ses['total_att']; ?> </td>
-                 <td> <?= $ses['rate_wages']; ?> </td>
-                 <td> <?= $ses['ot_rate']; ?> </td>
-                 <td> <?= $ses['overtime_attend']; ?> </td>
-                 <td> <?= $ses['emp_esic']; ?> </td>
-                 <td> <?= $ses['site_name']; ?> </td>
-                 <td> <?= $ses['wages_payable']; ?> </td>
-                 <td> <?= $ses['ot_amt']; ?> </td>
-                 <td> <?= $ses['total_amt']; ?> </td>
-                 <td> <?= $ses['pf']; ?> </td>
-                 <td> <?= $ses['total_ded']; ?> </td>
-                 <td> <?= $ses['net_pay']; ?> </td>
-                    </tr>
-<?php
-  $no++;
-           }
+                 </tr>
+                        <?php ++$no; }?>
+              </tbody>
+          </table>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -207,27 +169,49 @@
 
 
 
-                }
+
+<!.. Pagination here        -->
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+
+      <div class="widget-body">
+        <div class="pagination no-margin">
+
+        <ul>
+          <?php
+        $limits=    $pag->limitation();
+        for($i=1;$i<=$limits;$i++)
+        {
+        ?>
+            <li class="">
+              <a href="?pagination=<?=$i?>&emp_site_name=<?=$zone?>">
+                <?=$i?>
+              </a>
+            </li>
+<?php }?>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-                  ?>
 
 
 
-
-
-           </tbody>
-
-       </table>
-
-
-
-
-   </section>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p class="copyright">&copy; Black Label Admin 2013</p>
+    </footer>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/jquery-ui-1.8.23.custom.min.js"></script>
+
+    <!-- Flot Payment -->
 
   </body>
 </html>

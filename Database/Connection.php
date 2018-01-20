@@ -8,7 +8,7 @@
      function Connect()
      {
 
-         $connection = mysqli_connect("localhost","root","root","security");
+         $connection = mysqli_connect("localhost","root","","security");
             if($connection==null)
                 die("Connection problem");
 

@@ -1,4 +1,5 @@
 <?php include "./Extra/Header.php" ;?>
+<?php include "./Database/Connection.php"?>
 <style>
 
 .span4
@@ -31,13 +32,8 @@
               <div class="content">
                 <input class="input input-block-level" placeholder="Username" type="text" value="" name='username'>
                 <input class="input input-block-level" placeholder="Password" type="password" name='password'>
-                <select class="input input-block-level success"  name="field" >
-                 <option value="Default"></option>
-                   <option value="north">North Zone</option>
-                  <option value="south">South Zone</option>
-                  <option value="west">West Zone</option>
-                  <option value="east">East Zone</option>
-
+                <select class="input input-block-level success"  name="emp_site_name" >
+                 <?php include "./Extra/Sitename_option.php"?>
                   </select>
 
                </div>

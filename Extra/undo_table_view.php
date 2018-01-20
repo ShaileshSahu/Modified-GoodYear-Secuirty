@@ -1,3 +1,4 @@
+
 <div class="row-fluid">
  <div class="span12">
    <div class="widget no-margin">
@@ -23,9 +24,7 @@
                <th>Designation</th>
                <th>Address</th>
                <th>Phone no.</th>
-               <th>Monthly Update</th>
-               <th>Update</th>
-
+               <th>Undo</th>
             </tr>
            </thead>
            <tbody>
@@ -54,20 +53,14 @@
                  ?> </td>
 
       <!.. monthly uodate ..>
-                      <td><a href="monthlyUpdate.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small  btn-success">
-                              Monthly Update
+                      <td><a href="undo_table_from_master.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small  btn-success">
+                              Undo
                           </a>
                         </td>
 
 <!.. information update ..>
 
-                  <td><a href="update_guardInfo.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small btn-primary hidden-tablet hidden-phone">
-                   Update
-                 </a> </td>
-
-               </td>
-              
-             </tr>
+                </tr>
 <?php
         $sno++;
         echo $row['emp_id'];

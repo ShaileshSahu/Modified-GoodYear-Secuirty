@@ -1,5 +1,8 @@
 <?php   include "./Database/Connection.php";
-  $nm =   $_REQUEST['nm'];
+session_start();
+$req_emp_id=   $_GET['emp_id'];
+$_SESSION['emp_id']=$req_emp_id;
+
 ?>
 
 <html>
@@ -52,9 +55,9 @@
       border: none;
       border-bottom: 1px solid #ddd;
       background: transparent;
-      margin-bottom: 10px;
+
       font: 16px Arial, Helvetica, sans-serif;
-      height: 45px;
+
   }
   .form-style-8 textarea{
       resize:none;
@@ -72,7 +75,7 @@
       color: #FFFFFF;
       font-family: 'Open Sans Condensed', sans-serif;
       font-size: 14px;
-      padding: 8px 18px;
+      padding: 1px 8px;
       text-decoration: none;
       text-transform: uppercase;
   }
@@ -97,29 +100,24 @@
 </head>
 
 <body>
-<form action="Details.php?nm=<?= $nm ?>" method="post" class="form-horizontal">
+<form action="Database_monthly.php" method="post" class="form-horizontal">
 
 <div class="form-style-8">
   <h2>Monthly Updated</h2>
- 
-    <h4 id="myModalLabel1">
-        Monthly Update ---->
-     </h4>
-     <c class="text-primary">  Zone:- </c></td>  <td><select name="zone">
-           <option value="south">South</option>
-           <option value="north">North</option>
-           <option value ="west">West</option>
-           <option value="east">East</option>
 
-         </select>
+    <h5 id="myModalLabel1" style="text-align:right;opacity:.5;">
+        Please fill this form carefully
+     </h5>
 
          <label> Month:-<input id="bday-month" type="month" name="month"
                        min="2018-01" max="2030-12"> </label>
 <br><br>
 
-                        <label>Working Days:-<input type="number" class="s" Placeholder="Working Days" name="wdays"></label>
-                       <label>Overtime Days :-<input type="number" class="" Placeholder="Overtime Days" name="overtime"> </label>
-                       <input type="submit" name="submit" class="" value="Update" />
+                        <label><h5 style="text-align:right;">Working Days</h5><input type="number" class="s" Placeholder="Working Days" name="wdays"></label>
+                        <label><h5 style="text-align:right;">Rate Of Wages</h5><input type="number" class="s" Placeholder="Rate Of Wages" name="rwages" value="733"></label>
+                       <label><h5 style="text-align:right;">Overtime Days</h5><input type="number" class="" Placeholder="Overtime Days" name="odays"> </label>
+                       <label><h5 style="text-align:right;">Overtime Wages</h5><input type="number" class="s" Placeholder="Overtime Wages" name="owages" value="250"></label>
+                       <input type="submit" name="monthly" class="" value="Update" />
   </form>
 </div>
 

@@ -4,7 +4,7 @@
 
 <?php
 
-$pag = new pagination($data->Connect(),"select * from guard_info");
+$pag = new pagination($data->Connect(),"select * from discarded");
  ?>
 
           <div class="row-fluid">
@@ -38,7 +38,7 @@ $pag = new pagination($data->Connect(),"select * from guard_info");
 <div class="row-fluid">
 <div class="span7">
                   <div class="widget-body">
-                 <form action="viewSearch.php" class="form " method="post">
+                 <form action="undo_table.php" class="form " method="post">
 
                      <div class="input-append ">
                        <input class="" id="appendedInputButtons" type="text" name="info"  placeholder="Search by name, esic, month.........">
@@ -92,15 +92,15 @@ if( isset($_POST['search']))
 
     if($_POST['field'] =='name')
     {
-    $query= "select * from guard_info where emp_name like '%$info%'  limit 10";
+    $query= "select * from discarded where emp_name like '%$info%'  limit 10";
 
     }
     else if( $_POST['field'] =='esic')
     {
-        $query = "select * from guard_info where emp_esic_no like '%$info%' limit 10";
+        $query = "select * from discarded where emp_esic_no like '%$info%' limit 10";
     }else
     {
-        $query = "select * from guard_info where emp_zone like '%$info%'  limit 10";
+        $query = "select * from discarded where emp_zone like '%$info%'  limit 10";
     }
 
 
@@ -123,14 +123,14 @@ if( isset($_POST['search']))
 
 <!.. here goes the view content -->
 <!.. Guard details on table:    -->
-<?php include "./Extra/viewTable.php";?>
+<?php include "./Extra/undo_table_view.php";?>
 
 <?php
 }}
 else if(isset($_POST['site']))
  {
           $emp_site_name  = $_POST['emp_site_name'];
-    $query ="Select * from guard_info where emp_zone ='$emp_site_name'   limit 10";
+    $query ="Select * from discarded where emp_zone ='$emp_site_name'   limit 10";
     $result = mysqli_query($data->connect(),$query);
 
     echo("in Here else");
@@ -138,7 +138,7 @@ else if(isset($_POST['site']))
 ?>
 
 <!.. Guard details on table:    -->
-<?php include "./Extra/viewTable.php";?>
+<?php include "./Extra/undo_table_view.php";?>
 
 
 <?php
@@ -152,7 +152,7 @@ $query =  $pag->paged($pagination);
 }
 
 else {
-  $query ="Select * from guard_info limit 0,10";
+  $query ="Select * from discarded limit 0,10";
 }
 
 
@@ -162,7 +162,7 @@ else {
 
 
 ?>
-<?php include "./Extra/viewTable.php";?>
+<?php include "./Extra/undo_table_view.php";?>
 
 
 

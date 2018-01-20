@@ -1,0 +1,26 @@
+<thead>
+  <tr>
+    <th >Guard Id.</th>
+    <th >ESI No.</th>
+    <th >UAN no.</th>
+    <th  class="hidden-phone">Namw Of Employees</th>
+    <th class="hidden-phone">Month</th>
+    <th  class="hidden-phone">Working Days</th>
+    <th > ESI Daily Rate</th>
+    <th > PF Daily Rate</th>
+    <th >PF Basic</th>
+    <th >MISC.ALL</th>
+    <th >GROSS SAL</th>
+    <th>PAID BASIC SAL</th>
+    <th>PAID GROSS Sal</th>
+    <th> PF 3.67%</th>
+    <th>PF 8.33%</th>
+    <th>PF 12%</th>
+    <th>ESI 1.75%</th>
+    <th>TOTAL DEDU</th>
+    <th>NET SAL</th>
+    <th>SIGNATURE/THUMB</th>
+    <th>ACTION</th>
+
+  </tr>
+</thead>

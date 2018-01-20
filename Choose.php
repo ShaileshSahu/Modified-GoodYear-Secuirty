@@ -30,65 +30,21 @@
         if(isset($_POST["view"]))
 
         {
-          $basic ='select * from basic_slip_';
-          $payment_slip ='select * from pay_slip_';
-        global    $basic_zone;$payment_zone;
+
 $username =      $_POST['username'];
 $password =      $_POST['password'];
-$field =      $_POST['field'];
-      if($username=='north'&&$password=='north')
+
+      if($username==$password)
       {
-          if($field =='north')
-          {
-             $basic_zone ='north';
-              $payment_zone='north';
-          }
+$emp_site_name =      $_POST['emp_site_name'];
+
       }
+else {
 
-            else
-            if($username=='south'&&$password=='south')
-      {
-          if($field =='south')
-          {
-             $basic_zone ='south';
-              $payment_zone='south';
-          }
-      }
+  echo "username/password is not correct try again.........";
+}
 
-            else
-            if($username=='east'&&$password=='east')
-      {
-          if($field =='east')
-          {
-             $basic_zone ='east';
-              $payment_zone='east';
-          }
-      }
-
-
-            else
-            if($username=='west'&&$password=='west')
-      {
-          if($field =='west')
-          {
-             $basic_zone ='west';
-              $payment_zone='west';
-          }
-      }
-
-
-            else
-            {
-                 $basic_zone ='';
-              $payment_zone='';
-            }
-
-          $basic = $basic.$basic_zone;
-              $payment_slip = $payment_slip.$payment_zone;
-
-
-
-        ?>
+}?>
 
 
 
@@ -99,11 +55,11 @@ $field =      $_POST['field'];
              <div class="span4"
             >
 
+            <a href="Basic.php?emp_site_name=<?=$emp_site_name?>" class="btn btn-info btn-large">Basic</a></div>
 
-                  <a href="Basic.php?query=<?=$basic;?>" class="btn btn-info btn-large">Basic</a></div>
 
                   <div class="span4">
-                    <a href="Payment_slip.php?query=<?=$payment_slip;?>" class="btn btn-danger btn-large">Payment</a></div>
+                    <a href="Payment.php?emp_site_name=<?=$emp_site_name;?>" class="btn btn-danger btn-large">Payment</a></div>
 
         </div>
 
@@ -114,7 +70,7 @@ $field =      $_POST['field'];
 
 
       <?php
-        }?>
+        ?>
 
 
 

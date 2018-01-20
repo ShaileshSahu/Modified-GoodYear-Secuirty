@@ -1,6 +1,21 @@
 <?php include "./Database/Connection.php";?>
- <?php
-$query =$_GET["query"];
+<?php include "./Extra/pagination.php";?>
+ <?php error_reporting(0);
+ $pag = new pagination($data->Connect(),"select * from guard_info");
+ $zone=$_GET['emp_site_name'];
+
+
+if(isset($_GET['search'])){
+  $month =$_GET['month'];
+  $zone = $_GET['emp_site_name'];
+  $query =" select emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$month`) on id=emp_id where emp_zone='$zone'";
+  //
+}
+else {
+  $query ="select emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`2018-01`) on id=emp_id where emp_zone='$zone'";
+  //
+} //emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages
+
 
 $result = mysqli_query($data->Connect(),$query);
 
@@ -19,7 +34,7 @@ die("not obtained");
                   <a href="Payment.php"><span class="fs1" aria-hidden="true" data-icon="&#xe002;"></span> Dashboard</a>
                 </li>
                 <li>
-                  <a href="#"> Payment</a>
+                  <a href="#"> Payment <?=$zone?></a>
                 </li>
               </ul>
             </div>
@@ -33,31 +48,55 @@ die("not obtained");
 
 <!.. basic table here ..>
 <div class="row-fluid">
+
+
   <div class="span12">
     <div class="widget no-margin">
       <div class="widget-header">
         <div class="title">
-          <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Basic Payment: <i class="fa fa-list-alt"></i>-
+          <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Basic Payment:<?="hello"?> <i class="fa fa-list-alt"></i>-
         </div>
       </div>
       <div class="widget-body">
         <div id="dt_example" class="example_alt_pagination">
-          <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">
+
+          <div class='widget'>
+
+          <div class='widget-header'>
+          <div class='title '>Search  database for this month</div>
+          </div>
+
+          <div class='widget-body'>
+                    <form action='' method='' class="form-horizontal">
+          <div class="control-group inverse input-append">
+          <br>
+          &nbsp;<input type='month' min="2018-01" max="2030-01" class='input-xlarge' name='month' placeholder='june-18'>
+          <input type="hidden" name="emp_site_name" value="<?=$zone?>">
+          <input type='submit' class='btn btn-inverse' name="search">Search</button>
+          </div>
+
+                      </form>
+
+          </div>
+          </div>
+
+
+          <table class="table table-striped table-hover table-bordered pull-left" id="data-table">
             <thead>
               <tr>
-                <th >Guard ID.</th>
-                <th >Name </th>
+                <th>Guard ID.</th>
+                <th>Name </th>
 
                 <th> Site Name</th>
                 <th>Designation</th>
                 <th>Account No.</th>
-                <th > ESIC No.</th>
-                <th > PF NO. </th>
-                <th >Workable Days</th>
-                <th >Rate of wages</th>
-                <th >Total Attendace</th>
+                <th> ESIC No.</th>
+                <th> PF NO. </th>
+                <th>Workable Days</th>
+                <th>Rate of wages</th>
+                <th>Total Attendace</th>
                 <th>Wages Payable </th>
-                <th>OT Attendance</th>
+                <th>OT Attend</th>
                 <th>OT Rate per Day</th>
                 <th>OT Amount</th>
                 <th>Total Amount</th>
@@ -71,34 +110,49 @@ die("not obtained");
             </thead>
                               <tbody>
 
-                         <?php while($row = mysqli_fetch_array($result) )
+                         <?php
+                         $no=1;
+                                 while($row = mysqli_fetch_array($result) )
 {?>
                            <tr class="gradeX">
-                          <td><?= $row['emp_id']?></td>
+                          <td><?= $no?></td>
                           <td><?=$row['emp_name'] ?></td>
-                          <td><?=$row['site_name']?></td>
-                              <td><?= $row['designation']?></td>
-                             <td ><?= $row['account_no']?></td>
-                            <td><?= $row['emp_esic']?></td>
-                           <td><?= $row['pf_no']?></td>
+                          <td><?=$row['emp_zone']?></td>
+                              <td><?= $row['emp_designation']?></td>
+                             <td ><?= $row['emp_account_no']?></td>
+                            <td><?= $row['emp_esic_no']?></td>
+                           <td><?= $row['emp_pf_no']?></td>
                            <td>26</td>
 
-                           <td><?= $row['rate_wages']?></td>
-                           <td><?= $row['total_att']?></td>
-                           <td><?= $row['wages_payable']?></td>
-                           <td><?= $row['overtime_attend']?></td>
-                           <td><?= $row['ot_rate']?></td>
-                           <td><?= $row['ot_amt']?></td>
-                           <td><?= $row['total_amt']?></td>
-                           <td><?= $row['pf']?></td>
-                           <td><?= $row['esic']?></td>
-                           <td><?= $row['total_ded']?></td>
-                           <td><?= $row['net_pay']?></td>
-                           <td></td>
-                        <td></td>
+<?php
 
-                        </tr>
-                        <?php }?>
+$rwages =$row['emp_rwages'];
+$rdays =$row['emp_wdays'];
+$odays= $row['emp_odays'];
+$owages=$row['emp_owages'];
+$total_payble = $rwages*$rdays;
+$overtime_payble = $owages*$odays;
+$complete_payble = $total_payble+$overtime_payble;
+$pf_amount = round((10.6/100)*$complete_payble,2);
+$esic_amount =round((1.74/100)*$complete_payble,2);
+$total_deduction = $pf_amount+$esic_amount;
+$payble = $complete_payble-$total_deduction;
+?>
+                           <td><?= $row['emp_rwages']?></td>
+                           <td><?= $row['emp_wdays']?></td>
+                           <td><?= $total_payble?></td>
+                           <td><?=$row['emp_odays']?></td>
+                           <td><?= $row['emp_owages']?></td>
+                           <td><?= $overtime_payble?></td>
+                           <td><?= $complete_payble?></td>
+                           <td><?= $pf_amount?></td>
+                           <td><?= $esic_amount?></td>
+                           <td><?= $total_payble?></td>
+                           <td><?= $payble?></td>
+                           <td></td>
+
+                 </tr>
+                        <?php ++$no; }?>
               </tbody>
           </table>
           <div class="clearfix"></div>
@@ -122,78 +176,20 @@ die("not obtained");
 
       <div class="widget-body">
         <div class="pagination no-margin">
-          <ul>
-            <li class="disabled">
-              <a href="#">
-                Prev
+
+        <ul>
+          <?php
+        $limits=    $pag->limitation();
+        for($i=1;$i<=$limits;$i++)
+        {
+        ?>
+            <li class="">
+              <a href="?pagination=<?=$i?>&emp_site_name=<?=$zone?>">
+                <?=$i?>
               </a>
             </li>
-            <li class="active">
-              <a href="#">
-                1
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                2
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                3
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                4
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                5
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                6
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                7
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                8
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                9
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                10
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                11
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                12
-              </a>
-            </li>
-            <li class="hidden-phone">
-              <a href="#">
-                Next
-              </a>
-            </li>
-          </ul>
+<?php }?>
+            </ul>
         </div>
       </div>
     </div>
