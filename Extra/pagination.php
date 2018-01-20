@@ -45,7 +45,7 @@ return $limitation;
   $next =$pa*10;
   $init =($pa-1)*10;
   $q =$this->query;
-  $quered =$q." limit $init,$next";
+  $quered =$q." limit $init,10";
 return $quered;
 }
 

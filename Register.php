@@ -153,7 +153,7 @@
 
                     <input type="number" name="zip"  class="span6" id="zip" placeholder="Zip code" />
 
-                    <input type="text" name="city" class="span6" id="city" placeholder="City" />
+                    <input type="text" name="city" class="span6" id="city/states" placeholder="City" />
 
                     </div>
 

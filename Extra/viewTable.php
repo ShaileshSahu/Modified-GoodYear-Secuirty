@@ -32,9 +32,19 @@
              <tr class="gradeX">
                <?php
                  $sno =1;
+
+                 if(isset($_GET['pagination']))
+                 {
+                       $sno = ($_GET['pagination']-1)*10+1;
+                 }
+                 else {
+                   $sno=1;
+                 }
+
                  while($row = mysqli_fetch_array($result))
 
                  {
+
                    $emp_id = $row['emp_id'];
 
                  ?><td> <?php echo $sno;?></td>
@@ -66,7 +76,7 @@
                  </a> </td>
 
                </td>
-              
+
              </tr>
 <?php
         $sno++;

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2018 at 11:08 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Jan 20, 2018 at 05:51 PM
+-- Server version: 5.5.24
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,6 +41,7 @@ CREATE TABLE `2018-01` (
 INSERT INTO `2018-01` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`) VALUES
 (324398, 12, 733, 2, 250),
 (324400, 21, 733, 5, 250),
+(324402, 20, 733, 4, 250),
 (324403, 12, 733, 1, 250),
 (324404, 12, 733, 3, 250);
 
@@ -160,7 +159,45 @@ INSERT INTO `guard_info` (`emp_id`, `emp_name`, `emp_father_name`, `emp_dob`, `e
 (324407, 'Sandeep Yadav', 'Yadav Singh', '1991-02-11', 10219320, 2192, 1021, 'male', 'S/G', 1223, 'pritmapura road new valley,New Delhi,19021', '9310232354', 'null', 'India Gate'),
 (324408, 'Dhanush Malkoya', 'Mahesh Malkoya', '1992-02-01', 1021021, 11021, 872, 'male', 'S/G', 10219312, 'block-34,mintra road,MP,110230', '9203134567', 'null', 'Karol Bagh'),
 (324409, 'Adarsh Sharma', 'Rohit Sharma', '1994-01-10', 12013232, 12101, 22102, 'male', 'S/G', 23434, 'alwar road,New Delhi,110049', '821034232', 'null', 'CGHL'),
-(324410, 'Piyush SIngh', 'SIngh', '1995-02-09', 102031240, 1902, 439, 'male', 'S/G', 103, 'KHAJORI ,Delhi,110049', '9717872411', 'null', 'India Gate');
+(324410, 'Piyush SIngh', 'SIngh', '1995-02-09', 102031240, 1902, 439, 'male', 'S/G', 103, 'KHAJORI ,Delhi,110049', '9717872411', 'null', 'India Gate'),
+(324411, 'sushil kumar jha ', 'mr. jha ', '1473-02-02', 133019476, 1, 1, 'male', 'S/G', 78540, 'G.F floor uttam nagar  ,delhi ,1100', '9876543210', 'null', 'RML'),
+(324412, 'P.N JHA', 'A.N JHA', '1886-06-12', 1318565, 263, 2564, 'male', 'S/G', 48645, 'Mohan Garden,MP,0014', '9958456210', 'null', 'India Gate'),
+(324413, 'RAKESH KUMAR TOMAR', 'VIKAS KUMAR TOMAR', '1991-02-03', 1335654, 64589, 56453, 'male', 'S/G', 168445, 'Uttam Nagar,mumbai,001252', '9875821311', 'null', 'RML'),
+(324414, 'JOSHWA KUTTY', 'NAGAM KUTTY', '1774-04-01', 133389, 46548, 5198, 'male', 'S/G', 56427, 'OM VIHAR,delhi,112021', '8821456845', 'null', 'Karol Bagh'),
+(324415, 'B.L YADAV', 'M.N YADAV', '1981-12-15', 133537, 1354, 6451, 'male', 'S/G', 325455, 'P-1,Uttam nagar,delhi,110245', '9956874212', 'null', 'RML'),
+(324416, 'JP SINGH', 'LP SINGH', '1988-09-19', 133111, 479581, 998745, 'male', 'S/G', 789546, 'T-F4, Dwarka mor,RAJHASTAN,546821', '9856511230', 'null', 'Taj Mahal'),
+(324417, 'KK JHA', 'MK JHA', '1992-05-14', 133977, 54513, 654681, 'male', 'House Keeping', 999652, 'DWARKA SECTOR 1,MUMBAI,1120344', '8865243975', 'null', 'CGHL'),
+(324418, 'DIL BAGH SINGH', 'rahul singh', '1987-05-06', 133367, 221452, 22578, 'male', 'S/G', 568954, 'k-5,uttam nagar,ASSAM,112045', '7854851360', 'null', 'Karol Bagh'),
+(324419, 'PRAKASH CHANDRA', 'NAVEEN CHANDRA', '1997-08-28', 133370, 252, 432635, 'male', 'House Keeping', 461329, 'DWARKA SECTOR 9,MAHARASHTRA,014520', '7856695689', 'null', 'India Gate'),
+(324420, 'SARJO PASWAN', 'RAJAN PASWAN', '1988-11-05', 133226, 11252, 332654, 'male', 'House Keeping', 658930, 'UTTAM NAGAR,ORISSA,145241', '8874520035', 'null', 'CGHL'),
+(324421, 'HIRA LAL PRASAD', 'MOTI LAL PRASAD', '1995-10-10', 133895, 223655, 75764, 'male', 'S/G', 42522, 'Om Vihar Phase-4,delhi,110245', '8822301220', 'null', 'India Gate'),
+(324422, 'RAM PAL', 'CHIRAG PAL', '1987-01-05', 1332215, 15437, 65428, 'male', 'S/G', 546782, 'NANGLOI,DHERADUN,1354153', '9956854251', 'null', 'Karol Bagh'),
+(324423, 'VED NARAYAN', 'NITISH NARAYAN', '1978-04-15', 13327, 3214, 6846, 'male', 'S/G', 7758, 'K-2, Vikas Nagar,MUMBAI,225145', '7845125200', 'null', 'India Gate'),
+(324424, 'OM PRAKASH', 'SHRIOM PRAKASH', '1977-02-11', 133863, 163544, 35215, 'male', 'House Keeping', 445841, 'Rajori Garden,delhi,110245', '8845112610', 'null', 'Taj Mahal'),
+(324425, 'HIRA LAL VAJPHAI', 'SURJEET LAL VAJPHAI', '1982-12-12', 133613, 31884, 33690, 'male', 'S/G', 558412, 'VIKAS PURI,ORISSA,110058', '8854662311', 'null', 'Karol Bagh'),
+(324426, 'BADRI PRASAD SINGH', 'MADARI PRASAD SINGH', '1996-02-04', 1332256, 12345, 4457, 'male', 'S/G', 34158, 'Gandhi Nagar,MAHARASHTRA,114458', '9968213334', 'null', 'RML'),
+(324427, 'MUKESH KUMAR SINGH', 'PRAKWSH KUMAR SINGH', '1998-03-21', 1332250, 31832, 135845, 'male', 'S/G', 321874, 'Patel Nagar,Aligarh,110245', '9985421330', 'null', 'India Gate'),
+(324428, 'ANIL KUMAR', 'VIPUL KUMAR', '1996-09-24', 133543, 54468, 7433, 'male', 'S/G', 134331, 'KIRTI NAGAR,MUMBAI,5316843', '8845215456', 'null', 'Karol Bagh'),
+(324429, 'RAJENDRA PRASAD', 'VIRAJ PRASAD', '1995-03-30', 13254, 65484, 67468, 'male', 'S/G', 313541, 'Mahavir Enclave,Kolkata,110258', '7854845869', 'null', 'India Gate'),
+(324430, 'JAI SINGH', 'VIRU SINGH', '1986-04-24', 224587, 65265, 889546, 'male', 'S/G', 56416384, 'Rama Park ,DELHI,56438', '7895624510', 'null', 'India Gate'),
+(324431, 'Anil Kumar singh', 'kumar sena ', '1995-10-02', 7381738, 4646545, 45645465, 'male', 'S/G', 54654, 'mohan garden,,', '', 'null', 'CGHL'),
+(324432, 'Sumer Singh', 'mr Sunil', '1995-05-06', 536165, 565656, 567567, 'male', 'S/G', 464564, 'Uttam Nagar,Delhi,110059', '882333355', 'null', 'RML'),
+(324433, 'Bagish Prasad SIngh', 'Mr nanu', '1896-05-02', 34534, 3453, 3453453, 'male', 'S/G', 4654455, 'gaziabad,Delhi,110067', '987156589', 'null', 'India Gate'),
+(324434, 'Bijay Kishore Prasad', 'Mr Gill', '1996-08-08', 54353, 345367, 345456, 'male', 'S/G', 56445543, 'nawada,Delhi,110059', '987145698', 'null', 'RML'),
+(324435, 'ASHOK KUMAR', 'mr. kali ', '1984-02-21', 414564, 44456, 4555, 'male', 'S/G', 1, 'k-9 mohan garden ,delhi,110059', '954008545', 'null', 'RML'),
+(324436, 'BIJAY KUMAR THAKUR', 'Mr. gori', '1985-12-15', 25555, 5555, 55555, 'male', 'S/G', 444444, 'K-7 mohan garend,delhi,110058', '65858582', 'null', 'RML'),
+(324437, 'DILIP SINGH', 'mr.pali singh', '1985-12-01', 555, 222, 111, 'male', 'S/G', 1111, 'K-2 VIKAS PURI,DELHI,110075', '122222228', 'null', 'RML'),
+(324438, 'SURESH KUMAR', 'MR. GIRI SEHGAL', '1965-12-05', 5555447, 45454, 4520110, 'male', 'S/G', 487844884, 'KJ-3 VIKAS PURI ,DELHI,110045', '7503030212', 'null', 'RML'),
+(324439, 'SAT PRAKASH', 'MR TRI KUMAR', '1975-12-05', 111111, 12121, 112200, 'male', 'S/G', 448552, 'KHT-09 CV NAGAR ,DELHI,110045', '7545454545', 'null', 'RML'),
+(324440, 'RAMESH KUMAR', 'mR. NETHI LAL', '1985-12-04', 212121, 22200, 33300, 'male', 'S/G', 8, 'KJ-90909 FATHE PUR,MUMBAI,101010', '1212121212', 'null', 'RML'),
+(324441, 'SAT PRAKASH', 'mR. MONU', '1985-12-04', 56565656, 56584641, 4487893, 'male', 'S/G', 1424212, 'KJ- DADAR ,MUMBAI,212121', '245454544', 'null', 'RML'),
+(324442, 'RAJ SINGH', 'ME.HIMMAT ', '1985-12-01', 5555, 64694, 56241, 'male', 'S/G', 123446, 'L-9 DADAR ,MUMBAI ,212121', '124241541', 'null', 'RML'),
+(324443, 'ARUN KUMAR', 'Mr.PAGAL', '1985-12-12', 125858, 4544874, 44522, 'male', 'S/G', 545879642, 'LK-67 DADAR,MUMBAI,212121', '985757421', 'null', 'RML'),
+(324444, 'SAT PAL SINGH', 'MR. ROHAK ', '1975-12-05', 4548954, 11416461, 447769, 'male', 'S/G', 554545, 'JU-78 DADR ,MUMBAI,212121', '98575455', 'null', 'RML'),
+(324445, 'BABUAN MISHRA', 'MR. HUMAN ', '1947-12-08', 45564456, 45464654, 14664, 'male', 'S/G', 46489525, 'mn-98 hovli,pune,454545', '957845414', 'null', 'RML'),
+(324446, 'RAJNISH KUMAR SINGH', 'Mr. vicy ', '1985-12-04', 45566966, 21112211, 211848718, 'male', 'S/G', 6636363, 'LK-78 MOHAN NAGAR ,PUNE,1111', '878785858', 'null', 'RML'),
+(324447, 'UPENDER SINGH', 'MR.SINGH', '1985-12-02', 4545594, 6363939, 216478941, 'male', 'S/G', 1795585, 'GB-67 GAUTAM NAGAR ,PUNE,45454', '94787824', 'null', 'RML'),
+(324448, 'PRAMOD KUMAR SINGH', 'MR.ETHER ', '1858-12-05', 14891248, 15148, 4844884, 'male', 'S/G', 4844884, 'KJ-98 MIHAN DR,PUNE,252525', '987545420', 'null', 'RML');
 
 -- --------------------------------------------------------
 
@@ -195,7 +232,8 @@ INSERT INTO `sitename` (`emp_id`, `emp_site_name`) VALUES
 (1, 'RML'),
 (27, 'CGHL'),
 (28, 'India Gate'),
-(29, 'Karol Bagh');
+(29, 'Karol Bagh'),
+(30, 'Taj Mahal');
 
 --
 -- Indexes for dumped tables
@@ -252,20 +290,16 @@ ALTER TABLE `sitename`
 --
 ALTER TABLE `discarded`
   MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324401;
-
 --
 -- AUTO_INCREMENT for table `guard_info`
 --
 ALTER TABLE `guard_info`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324411;
-
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324449;
 --
 -- AUTO_INCREMENT for table `sitename`
 --
 ALTER TABLE `sitename`
-  MODIFY `emp_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-COMMIT;
-
+  MODIFY `emp_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
