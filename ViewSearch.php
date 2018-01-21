@@ -3,7 +3,7 @@
 <?php include "./Extra/pagination.php"?>
 
 <?php
-
+$query ="select * from guard_info";
 $pag = new pagination($data->Connect(),"select * from guard_info");
  ?>
 
@@ -23,7 +23,7 @@ $pag = new pagination($data->Connect(),"select * from guard_info");
 
 <!.. search box here ..>
 
-<h3  > <i> Employee View:-- <a href="./print/print.php"class="btn btn-info pull-right btn-small">print</a></i></h3>
+<h3  > <i> Employee View:-- <a href="./print/print.php?print=1" class="btn btn-info pull-right btn-small">print</a></i></h3>
 
 <h4 class="text-center text-warning text-capitalize"> Enter something to searc</h4>
 

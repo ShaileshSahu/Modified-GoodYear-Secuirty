@@ -80,7 +80,6 @@
              </tr>
 <?php
         $sno++;
-        echo $row['emp_id'];
 
 
       } ?>

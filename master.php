@@ -1,6 +1,7 @@
 <?php include "./Database/Connection.php";?>
 <?php include "./Extra/pagination.php";?>
  <?php error_reporting(0);
+ session_start();
  $pag = new pagination($data->Connect(),"select * from guard_info");
  $zone=$_GET['emp_site_name'];
 
@@ -9,11 +10,18 @@ if(isset($_GET['search'])){
   $month =$_GET['month'];
   //$zone = $_GET['emp_site_name'];
   $query =" select  emp_id , emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$month`) on id=emp_id";
-  //
+  $_SESSION['query'] = $query;
+  $_SESSION['month']=$month;
+//  $_SESSION['emp_site_name']=$zone;
+
 }
 else {
   $query ="select  emp_id ,emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`2018-01`) on id=emp_id ";
-  //
+  $_SESSION['query'] = $query;
+  $_SESSION['month']='2018-01';
+
+  //$_SESSION['emp_site_name']=$zone;
+
 } //emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages
 
 
@@ -54,7 +62,7 @@ die("not obtained");
     <div class="widget no-margin">
       <div class="widget-header">
         <div class="title">
-          <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Basic Payment:<?="hello"?> <i class="fa fa-list-alt"></i>-
+          <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span> Basic Payment:<a href="print/print.php?print=4" class="btn btn-info">Print</a>-
         </div>
       </div>
       <div class="widget-body">
