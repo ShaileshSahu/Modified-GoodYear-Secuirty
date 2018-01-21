@@ -1,11 +1,21 @@
-<?php include "./Database/Connection.php";?>
+<?php session_start();include "./Database/Connection.php";?>
 <?php include "./Extra/Header.php" ;?>
 <?php include "./Extra/pagination.php"?>
 
 <?php
 $query ="select * from guard_info";
+$sett =$_SESSION["for_pag"];
+
+if($sett==null)
+{
 $pag = new pagination($data->Connect(),"select * from guard_info");
- ?>
+}
+else {
+  $pag = new pagination($data->Connect(),$sett);
+}
+
+
+?>
 
           <div class="row-fluid">
             <div class="span12">
@@ -32,6 +42,7 @@ $pag = new pagination($data->Connect(),"select * from guard_info");
                   <div class="widget-header">
                       <div class="title">
                          <b class="text-success">Search</b>
+<a href="viewSearch.php" class="push-right btn btn-success btn-small " style="float:right">Reset</a>
                       </div>
 
                   </div>
@@ -88,24 +99,63 @@ $pag = new pagination($data->Connect(),"select * from guard_info");
 if( isset($_POST['search']))
 {
   //  echo("boitched");
+
+
     $info = $_POST['info'];
 
     if($_POST['field'] =='name')
     {
-    $query= "select * from guard_info where emp_name like '%$info%'  limit 10";
+      if(isset($_GET['pagination']))
+      {
 
-    }
+      $pagination = $_GET['pagination'];
+      $query =  $pag->paged($pagination);
+      }
+
+      else {
+        $query= "select * from guard_info where emp_name like '%$info%' limit 0,15";
+$_SESSION["for_pag"]= "select * from guard_info where emp_name like '$info'";
+
+
+}
+}
     else if( $_POST['field'] =='esic')
     {
-        $query = "select * from guard_info where emp_esic_no like '%$info%' limit 10";
-    }else
-    {
-        $query = "select * from guard_info where emp_zone like '%$info%'  limit 10";
-    }
 
+        if(isset($_GET['pagination']))
+        {
+
+        $pagination = $_GET['pagination'];
+        $query =  $pag->paged($pagination);
+        }
+
+        else {
+          $query= "select * from guard_info where emp_esic_no like '%$info%' limit 0,15";
+  $_SESSION["for_pag"]= "select * from guard_info where emp_esic_no like '$info'";
+
+
+  }}else
+    {
+      if(isset($_GET['pagination']))
+      {
+
+      $pagination = $_GET['pagination'];
+      $query =  $pag->paged($pagination);
+      }
+
+      else {
+        $query= "select * from guard_info where emp_zone like '%$info%' limit 0,15";
+$_SESSION["for_pag"]= "select * from guard_info where emp_zone like '$info'";
+
+
+}
+    }
 
     $result = mysqli_query($data->connect(),$query);
     $n =  mysqli_num_rows($result);
+
+
+
     if($n < 0)
       {
 
@@ -129,8 +179,20 @@ if( isset($_POST['search']))
 }}
 else if(isset($_POST['site']))
  {
-          $emp_site_name  = $_POST['emp_site_name'];
-    $query ="Select * from guard_info where emp_zone ='$emp_site_name'   limit 10";
+
+     if(isset($_GET['pagination']))
+     {
+
+     $pagination = $_GET['pagination'];
+     $query =  $pag->paged($pagination);
+     }
+
+     else {
+       $emp_site_name  = $_POST['emp_site_name'];
+ $query ="Select * from guard_info where emp_zone ='$emp_site_name' limit 0,15";
+$_SESSION["for_pag"]= "Select * from guard_info where emp_zone ='$emp_site_name'";
+   }
+
     $result = mysqli_query($data->connect(),$query);
 
     echo("in Here else");
@@ -152,7 +214,8 @@ $query =  $pag->paged($pagination);
 }
 
 else {
-  $query ="Select * from guard_info limit 0,10";
+  $query ="Select * from guard_info limit 0,15";
+  $_SESSION["for_pag"]="select * from guard_info";
 }
 
 
