@@ -113,9 +113,9 @@ $_SESSION['emp_id']=$req_emp_id;
                        min="2018-01" max="2030-12"> </label>
 <br><br>
 
-                        <label><h5 style="text-align:right;">Working Days</h5><input type="number" class="s" Placeholder="Working Days" name="wdays"></label>
+                        <label><h5 style="text-align:right;">Working Days</h5><input type="number" class="s" min="0" max="27" Placeholder="Working Days" name="wdays"></label>
                         <label><h5 style="text-align:right;">Rate Of Wages</h5><input type="number" class="s" Placeholder="Rate Of Wages" name="rwages" value="733"></label>
-                       <label><h5 style="text-align:right;">Overtime Days</h5><input type="number" class="" Placeholder="Overtime Days" name="odays"> </label>
+                       <label><h5 style="text-align:right;">Overtime Days</h5><input type="number" class="" min="0" max="27"Placeholder="Overtime Days" name="odays" value="0"> </label>
                        <label><h5 style="text-align:right;">Overtime Wages</h5><input type="number" class="s" Placeholder="Overtime Wages" name="owages" value="250"></label>
                        <input type="submit" name="monthly" class="" value="Update" />
   </form>

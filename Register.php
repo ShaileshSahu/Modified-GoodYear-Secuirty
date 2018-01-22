@@ -151,15 +151,25 @@
                     <div ><label for="zip">Zip Code</label>
 
 
-                    <input type="number" name="zip"  class="span6" id="zip" placeholder="Zip code" />
 
-                    <input type="text" name="city" class="span6" id="city/states" placeholder="City" />
+
+                <input type="number" name="zip"  class="span6" id="zip" placeholder="Zip code" />
+
 
                     </div>
+                    <div>
+                                          <label class=" inline" for="designation">State</label>
+                                          <select class="controls success" name="city">
+                                            <?php include "./Somemoreupdates/State.php"?>
+                                            </select>
+
+
+                                        </div>
+
 
                     <div>
                       <label for="contact"> Phone Number </label>
-                      <input type="tel" id="contact" class="span12" name="emp_phn">
+                      <input type="number" min="100000000" max="9999999999" id="contact" class="span12" name="emp_phn">
 
                     </div>
                     <hr/>

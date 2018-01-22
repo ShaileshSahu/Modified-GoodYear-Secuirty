@@ -1,5 +1,7 @@
 <?php include "./Database/Connection.php";
+session_start();
  $connection = $data->connect();
+
     ?>
 
 
@@ -44,7 +46,12 @@ if(isset($_POST["register"]))
   else
   {
       echo "Registration has been done";
-        header('Location: viewSearch.php');
+      $_SESSION["name"]=$emp_name;
+      $_SESSION["account_no"] = $emp_account_no;
+      $_SESSION["pf_no"]=$emp_pf_no;
+      $_SESSION["uan_no"]=$emp_uan_no;
+      $_SESSION["phone"]=$emp_phn;
+        header('Location: ./Somemoreupdates/mail.php');
   }
 
 
