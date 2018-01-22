@@ -57,10 +57,13 @@ case 2:
   $result =mysqli_query($data->Connect(),$query);
   $full= $_SESSION['month'];
     $split = explode("-",$full);
-  $month = date("F",strtotime($split[1]));
+    $monthNum  =$split[1] ;
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+
   $year = $split[0];
 ?>
-<h4 style="text-align:left;">Salary Statement for this month  of <b><?= $month.",".$year?></b><br>
+<h4 style="text-align:left;">Salary Statement for this month  of <b><?= $monthName.",".$year?></b><br>
 Site Name & Location :-<?=$_SESSION['emp_site_name'] ?>Basic Sheet
 </h4>;
 
@@ -79,10 +82,13 @@ case 3:{
   $result =mysqli_query($data->Connect(),$query);
   $full= $_SESSION['month'];
     $split = explode("-",$full);
-  $mon = date("F",strtotime($split[1]));
+    $monthNum  =$split[1] ;
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+
   $year = $split[0];
 ?>
-<h4 style="text-align:left;">Salary Statement for this month  of <b><?= $mon.",".$year?></b><br>
+<h4 style="text-align:left;">Salary Statement for this month of <b><?= $monthName.",".$year?></b><br>
 Site Name & Location :-<?=$_SESSION['emp_site_name'] ?>Payment Sheet
 </h4>;
 
@@ -105,10 +111,14 @@ case 4:
   $result =mysqli_query($data->Connect(),$query);
   $full= $_SESSION['month'];
     $split = explode("-",$full);
-  $month = date("F",strtotime($split[1]));
+    $monthNum  =$split[1] ;
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+
+
   $year = $split[0];
 ?>
-<h4 style="text-align:left;">Salary Statement for this month  of <b><?= $month.",".$year?></b><br>
+<h4 style="text-align:left;">Salary Statement for this month of <b><?= $monthName.",".$year?></b><br>
 Basic Master Sheet
 </h4>;
 
