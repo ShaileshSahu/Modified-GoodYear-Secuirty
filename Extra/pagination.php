@@ -42,8 +42,8 @@ return $limitation;
   function paged($pa)
 {
 
-  $next =$pa*10;
-  $init =($pa-1)*10+5;
+  $next =$pa*15;
+  $init =($pa-1)*15;
   $q =$this->query;
   $quered =$q." limit $init,15";
 return $quered;

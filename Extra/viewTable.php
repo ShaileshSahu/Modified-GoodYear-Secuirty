@@ -35,7 +35,7 @@
 
                  if(isset($_GET['pagination']))
                  {
-                       $sno = ($_GET['pagination']-1)*10+1;
+                       $sno = ($_GET['pagination']-1)*15+1;
                  }
                  else {
                    $sno=1;
