@@ -47,31 +47,31 @@
 
                    $emp_id = $row['emp_id'];
 
-                 ?><td> <?php echo $sno;?></td>
-               <td><?php echo $row['uan_no'];?></td>
-               <td><?php echo $row['emp_name'];?></td>
-               <td><?php echo $row['emp_father_name'];?></td>
-               <td><?php echo $row['emp_dob'];?></td>
-               <td><?php echo $row['emp_zone'];?></td>
-               <td><?php echo $row['emp_account_no'];?></td>
-               <td><?php echo $row['emp_esic_no'];?></td>
-               <td><?php echo $row['emp_pf_no'];?></td>
-               <td><?php echo $row['emp_designation'];?></td>
-               <td class="hidden-ph"><?php echo $row['emp_address'];?>
+                 ?><td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?> > <?php echo $sno;?></td>
+               <td  <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['uan_no'] != null ? $row['uan_no'] : '0'       ;?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_name'] ;?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['emp_father_name'];?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_dob'];?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_zone'];?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['emp_account_no']  != null ? $row['emp_account_no'] : '0';?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_esic_no'] != null ? $row['emp_esic_no'] : '0';?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['emp_pf_no'] != null ? $row['emp_pf_no'] : '0';?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_designation'];?></td>
+               <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?> class="hidden-ph"><?php echo $row['emp_address'];?>
                  </td>
 
-                 <td><?php echo $row['emp_phn'];
+                 <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_phn'];
                  ?> </td>
 
       <!.. monthly uodate ..>
-                      <td><a href="monthlyUpdate.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small  btn-success">
+                      <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><a href="monthlyUpdate.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small  btn-success">
                               Monthly Update
                           </a>
                         </td>
 
 <!.. information update ..>
 
-                  <td><a href="update_guardInfo.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small btn-primary hidden-tablet hidden-phone">
+                  <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><a href="update_guardInfo.php?emp_id=<?=$emp_id?>" role="button" class="btn btn-small btn-primary hidden-tablet hidden-phone">
                    Update
                  </a> </td>
 
