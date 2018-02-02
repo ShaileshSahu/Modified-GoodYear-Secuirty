@@ -9,6 +9,9 @@ $wdays =$_POST["wdays"];
 $odays =$_POST["odays"];
 $rwages = $_POST["rwages"];
 $owages = $_POST["owages"];
+$pwages = $_POST["pwages"];
+$pdays = $_POST["pdays"];
+$additonal = $_POST["additional"];
 $month = $_POST["month"];
 $result =mysqli_query($data->Connect(),"select * from `$month`");
 if($result==null)
@@ -18,7 +21,7 @@ if($result==null)
 else {
 
 
-$query ="insert into `$month` values($emp_id,$wdays,$rwages,$odays,$owages)";
+$query ="insert into `$month` values($emp_id,$wdays,$rwages,$odays,$owages,$pdays,$pwages,$additonal)";
       $result =mysqli_query($data->Connect(),$query);
 if($result==null)
 {

@@ -51,17 +51,23 @@ else {
         <div class="container">
 
           <h3 class="text-center text-info" style="position:relative;left:370px;padding-bottom:60px;">Data Can be viewed by following:-</h3>
-           <div class="span3"></div>
-             <div class="span4"
+           <div class="span2"></div>
+             <div class="span3"
             >
 
-            <a href="Basic.php?emp_site_name=<?=$emp_site_name?>" class="btn btn-info btn-large">Basic</a></div>
+            <a href="Basic.php?emp_site_name=<?=$emp_site_name?>" class="btn btn-info btn-large">Basic1</a></div>
 
 
-                  <div class="span4">
-                    <a href="Payment.php?emp_site_name=<?=$emp_site_name;?>" class="btn btn-danger btn-large">Payment</a></div>
+                  <div class="span3">
+                    <a href="Payment.php?emp_site_name=<?=$emp_site_name;?>" class="btn btn-primary btn-large">Basic2</a></div>
 
+                    <div class="span3">
+                      <a href="ModifiedPayment.php?emp_site_name=<?=$emp_site_name;?>" class="btn btn-danger btn-large">Payment</a></div>
         </div>
+
+
+
+</div>
 
 
 

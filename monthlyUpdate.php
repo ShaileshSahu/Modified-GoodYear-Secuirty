@@ -117,7 +117,13 @@ $_SESSION['emp_id']=$req_emp_id;
                         <label><h5 style="text-align:right;">Rate Of Wages</h5><input type="number" class="s" Placeholder="Rate Of Wages" name="rwages" value="733"></label>
                        <label><h5 style="text-align:right;">Overtime Days</h5><input type="number" class="" min="0" max="27"Placeholder="Overtime Days" name="odays" value="0"> </label>
                        <label><h5 style="text-align:right;">Overtime Wages</h5><input type="number" class="s" Placeholder="Overtime Wages" name="owages" value="250"></label>
-                       <input type="submit" name="monthly" class="" value="Update" />
+<h4 style="color:green;">Payment Slip</h4>
+<label><h5 style="text-align:right;">Payment Days</h5><input type="number" class="" min="0" max="31"Placeholder="Payment Days" name="pdays" > </label>
+<label><h5 style="text-align:right;">Payment Wages</h5><input type="number" class="s" Placeholder="Payment Wages" name="pwages" value="700"></label>
+
+<label><h5 style="text-align:right;">Additional Charges</h5><input type="number" class="s" Placeholder="Additional Charges" name="additional" value="0"></label>
+
+                       <input type="submit" name="monthly" class="" value="Update"/>
   </form>
 </div>
 

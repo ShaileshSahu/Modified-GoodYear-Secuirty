@@ -7,7 +7,7 @@ if(isset($_GET['create']))
 {
   $month =$_GET['month'];
   //$query ="create table ".$month."(id int,emp_wdays int,emp_rwages float,emp_odays int,emp_owages float)";
-  $query ="CREATE TABLE `security`.`$month` ( `id` INT NOT NULL UNIQUE , `emp_wdays` DOUBLE NOT NULL , `emp_rwages` FLOAT NOT NULL , `emp_odays` INT NOT NULL , `emp_owages` DOUBLE NOT NULL )";
+  $query ="CREATE TABLE `security`.`$month` ( `id` INT NOT NULL , `emp_wdays` INT NOT NULL , `emp_rwages` DOUBLE NOT NULL , `emp_odays` INT NOT NULL , `emp_owages` DOUBLE NOT NULL , `emp_pdays` INT NOT NULL , `emp_pwages` DOUBLE NOT NULL , `emp_addition` DOUBLE NOT NULL , UNIQUE `id` (`id`))";
 $result =  mysqli_query($data->Connect(),$query);
   if($result==null)
   {
