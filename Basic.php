@@ -13,9 +13,40 @@ $_SESSION['emp_site_name']=$zone;
 $_SESSION['month'] =$month;
   $query =" select emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$month`) on id=emp_id where emp_zone='$zone'";
 $_SESSION['query']=$query;
+}else if(isset($_GET['sort']))
+{
+  $count =1;
+$id =  $_GET['id'];
+
+$sortbymonth =  $_GET['sortbymonth'];
+$query ="";
+$year = date('Y');
+$month = 12;//date('m');
+
+
+ while($count<$sortbymonth)
+ {
+   $date = join("-",array($year,$month));
+  $query .="select emp_days,emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$date`) on id=emp_id where emp_id=$id union ";
+   $count++;
+$month--;
+if(10>$month)
+{
+$month = "0". $month;
 }
+echo $month;
+
+ }
+ $date = join("-",array($year,$month));
+echo $date;
+    $query .="select emp_days,emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`$date`) on id=emp_id where emp_id=$id  ";
+
+
+}
+
+
 else {
-  $SESSION['month'] ="2018-01"; 
+  $SESSION['month'] ="2018-01";
   $query ="select emp_name,emp_zone,emp_designation,emp_account_no,emp_esic_no,emp_pf_no,emp_rwages,emp_wdays,emp_odays,emp_owages from guard_info join (`2018-01`) on id=emp_id where emp_zone='$zone'";
 $SESSION['query']=$query;
 
@@ -72,7 +103,7 @@ die("not obtained");
           </div>
 
           <div class='widget-body'>
-                    <form action='' method='' class="form-horizontal">
+                    <form action='' method='' class=" span4 form-horizontal">
           <div class="control-group inverse input-append">
           <br>
           &nbsp;<input type='month' min="2018-01" max="2030-01" class='input-xlarge' name='month' placeholder='june-18'>
@@ -81,6 +112,23 @@ die("not obtained");
           </div>
 
                       </form>
+
+                      <form action='' method='' class="span4 form-horizontal">
+            <div class="control-group inverse input-append">
+            <br>
+            &nbsp;
+
+            <input type="text" name="id" placeholder="Emp Id">
+            <select name="sortbymonth" class="has primary">
+              <option value="1">1 Month</option>
+              <option value="3">3 Month</option>
+              <option value="6">6 Month</option>
+              <option value="12">12 Month</option>
+            </select>
+            <input type='submit' class='btn btn-info' name="sort" value="Sort">Sort</button>
+            </div>
+
+                        </form>
 
           </div>
           </div>

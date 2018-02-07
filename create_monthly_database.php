@@ -7,7 +7,7 @@ if(isset($_GET['create']))
 {
   $month =$_GET['month'];
   //$query ="create table ".$month."(id int,emp_wdays int,emp_rwages float,emp_odays int,emp_owages float)";
-  $query ="CREATE TABLE `security`.`$month` ( `id` INT NOT NULL , `emp_wdays` INT NOT NULL , `emp_rwages` DOUBLE NOT NULL , `emp_odays` INT NOT NULL , `emp_owages` DOUBLE NOT NULL , `emp_pdays` INT NOT NULL , `emp_pwages` DOUBLE NOT NULL , `emp_addition` DOUBLE NOT NULL , UNIQUE `id` (`id`))";
+  $query ="CREATE TABLE `security`.`$month` ( `id` INT NOT NULL , `emp_wdays` INT NOT NULL , `emp_rwages` DOUBLE NOT NULL , `emp_odays` INT NOT NULL , `emp_owages` DOUBLE NOT NULL , `emp_pdays` INT NOT NULL , `emp_pwages` DOUBLE NOT NULL , `emp_addition` DOUBLE NOT NULL , `emp_days` INT NOT NULL,UNIQUE `id` (`id`))";
 $result =  mysqli_query($data->Connect(),$query);
   if($result==null)
   {
@@ -64,6 +64,7 @@ die("Not existed");
 
 <h3 class='text-warning'style='opacity:.5;text-align:center'>Create/Delete for this month</h3>
           <hr>
+          <a href="create_monthly_database.php" class="btn btn-success">Reset</a>
 <div class='row-fluid'>
 <div class='span2'></div>
 <div class='span4 '>

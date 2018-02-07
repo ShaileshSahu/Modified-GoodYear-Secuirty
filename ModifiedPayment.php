@@ -1,6 +1,6 @@
 <?php include "./Database/Connection.php";?>
 <?php include "./Extra/pagination.php";?>
- <?php error_reporting(0);
+ <?php error_reporting(1);
 session_start();
  $pag = new pagination($data->Connect(),"select * from guard_info");
  $zone=$_GET['emp_site_name'];
@@ -16,8 +16,38 @@ $_SESSION['emp_site_name']=$zone;
 
   //
 }
+else if(isset($_GET['sort']))
+{
+  $count =1;
+$id =  $_GET['id'];
+
+$sortbymonth =  $_GET['sortbymonth'];
+$query ="";
+$year = date('Y');
+$month = 12;//date('m');
+
+
+ while($count<$sortbymonth)
+ {
+   $date = join("-",array($year,$month));
+  $query .="select emp_days,emp_name,emp_zone,emp_designation,emp_pwages,emp_pdays,emp_addition from guard_info join (`$date`) on id=emp_id where emp_id=$id union ";
+   $count++;
+$month--;
+if(10>$month)
+{
+$month = "0". $month;
+}
+echo $month;
+
+ }
+ $date = join("-",array($year,$month));
+echo $date;
+    $query .="select emp_days,emp_name,emp_zone,emp_designation,emp_pwages,emp_pdays,emp_addition from guard_info join (`$date`) on id=emp_id where emp_id=$id ";
+
+
+}
 else {
-  $query ="  select emp_name,emp_zone,emp_designation,emp_pwages,emp_pdays,emp_addition from guard_info join (`2018-11`) on id=emp_id where emp_zone='$zone'";
+  $query ="  select emp_days, emp_name,emp_zone,emp_designation,emp_pwages,emp_pdays,emp_addition from guard_info join (`2018-01`) on id=emp_id where emp_zone='$zone'";
   $_SESSION['query'] = $query;
   $_SESSION['month']='2018-01';
   $_SESSION['emp_site_name']=$zone;
@@ -76,8 +106,8 @@ die("not obtained");
           <div class='title '>Search  database for this month</div>
           </div>
 
-          <div class='widget-body'>
-                    <form action='' method='' class="form-horizontal">
+          <div class='widget-body' style="position:relative;top:-22px;left:120px;">
+                    <form action='' method='' class="span4 form-horizontal">
           <div class="control-group inverse input-append">
           <br>
           &nbsp;<input type='month' min="2018-01" max="2030-01" class='input-xlarge' name='month' placeholder='june-18'>
@@ -86,6 +116,25 @@ die("not obtained");
           </div>
 
                       </form>
+&nbsp;
+                      <form action='' method='' class="span4 form-horizontal">
+            <div class="control-group inverse input-append">
+            <br>
+            &nbsp;
+
+            <input type="text" name="id" placeholder="Emp Id">
+            <select name="sortbymonth" class="has primary">
+              <option value="1">1 Month</option>
+              <option value="3">3 Month</option>
+              <option value="6">6 Month</option>
+              <option value="12">12 Month</option>
+            </select>
+            <input type='submit' class='btn btn-info' name="sort" value="Sort">Sort</button>
+            </div>
+
+                        </form>
+
+
 
           </div>
         </div>

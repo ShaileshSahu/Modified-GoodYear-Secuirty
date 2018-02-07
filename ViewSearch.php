@@ -30,7 +30,6 @@ else {
   </div>
 </div>
 
-
 <!.. search box here ..>
 
 <h3  > <i> Employee View:-- <a href="./print/print.php?print=1" class="btn btn-info pull-right btn-medium">print</a></i></h3>
@@ -83,7 +82,13 @@ else {
       </div>
 
     </div>
-      <?php include "./total_employee.php"  ?>
+
+    <div class="">
+      <?php include "total_employee.php"?>
+    </div>
+
+
+
 
 
     <!.. php code here ..>

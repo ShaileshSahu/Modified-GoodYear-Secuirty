@@ -34,16 +34,27 @@
                  <td><?= $row['emp_designation']?></td>
 
 <?php
+$additonal = $row["emp_addition"];
+$emp_days = $row["emp_days"];
 $split =explode("-",$month);
 $day =cal_days_in_month(CAL_GREGORIAN,$split[1],$split[0]);
-     $rate =$row['emp_pwages']*$day;
+     $rate =$row['emp_pwages']*$emp_days;
             $amount=$row['emp_pdays']*$row['emp_pwages'];
-$additonal = $row["emp_addition"];
+
+
 $net = $amount-$additonal;
  ?>
+ <?php
+
+ $total_days += $emp_days;
+ $total_attendence +=$row['emp_pdays'];
+ $total_amount +=$row['emp_pdays']*$row['emp_pwages'];
+ $total_deduction += $additonal;
+ $total_net +=$net;
+  ?>
 
                  <td><?=$rate ?></td>
-                 <td><?=$day?></td>
+                 <td><?=$emp_days?></td>
                  <td><?= $row['emp_pdays']?></td>
                  <td><?=$amount?></td>
                  <td><?=$amount?></td>
@@ -51,9 +62,27 @@ $net = $amount-$additonal;
                  <td><?= $row['emp_addition']?></td>
 <td>0</td>
 <td></td>
-                 <td><?=$net?></td>
 
+
+                 <td><?=$net?></td>
+<td></td>
        </tr>
               <?php ++$no; }?>
+    </tbody>
+
+<tr>
+     <td colspan="5" style="text-align:text-center"><b>Total</b></td>
+     <td><b><?=$total_days?></b></td>
+          <td><b><?=$total_attendence?></b></td>
+               <td><b><?=$total_amount?></b></td>
+                    <td><b><?=$total_amount?></b></td>
+                    <td></td>
+                    <td><b><?=$total_deduction?></b></td>
+                    <td colspan="2"></td>
+                         <td><b><?=$total_net?></b></td>
+                         <td></td>
+</tr>
+    <tbody>
+
     </tbody>
 </table>

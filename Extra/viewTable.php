@@ -12,6 +12,7 @@
            <thead>
              <tr>
                <th >S.no</th>
+               <th>Guard Id</th>
                <th>UAN no.</th>
                <th>Name</th>
                <th >Father's Name</th>
@@ -48,6 +49,7 @@
                    $emp_id = $row['emp_id'];
 
                  ?><td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?> > <?php echo $sno;?></td>
+                    <td  <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['uan_no'] != null ? $row['emp_id'] : '0'       ;?></td>
                <td  <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['uan_no'] != null ? $row['uan_no'] : '0'       ;?></td>
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_name'] ;?></td>
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['emp_father_name'];?></td>

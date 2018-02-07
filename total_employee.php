@@ -22,13 +22,12 @@ if(isset($_POST['temp']))
   }
   ?>
 
-  <div class="row" style="transform:translate(30px,30px);">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Total Employee in :-</h4>
-      </div>
-      <div class="panel-body">
-        <div class="">
+  <div class="span6" >
+        <h4>Total Employee In : -</h4>
+
+<hr>
+<div class="span4"></div>
+        <div class="span4" style="position:relative;left:380px;">
           <form class="form-horizontal"  action="viewSearch.php" method="post">
 
 
@@ -38,13 +37,12 @@ if(isset($_POST['temp']))
             </select>
 
 
-            <button type='submit' class='btn btn-info' name="temp">Enter</button>
-            <div > <?= $site?><input type="text" name = "val" class="form-control" value="<?= $num ?>"  /></div>
+            <button type='submit' class='btn btn-inverse' name="temp">Enter</button>
+            <div><h3 class="text-primary" style="position:relative;left:80px;"><?=$site?> <b style="color:blue;"><?=$num?></b></h3> </div>
           </div>
 
         </div>
-      </div>
-    </div>
+
 
     <?php
 
@@ -56,14 +54,12 @@ if(isset($_POST['temp']))
     ?>
 
 
+    <div class="span6" >
+          <h4>Total Employee In : -</h4>
 
-    <div class="row" style="transform:translate(30px,30px);">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>Total Employee in :-</h4>
-        </div>
-        <div class="panel-body">
-          <div class="">
+  <hr>
+  <div class="span4"></div>
+          <div class="span4" style="position:relative;left:380px;">
             <form class="form-horizontal"  action="viewSearch.php" method="post">
 
 
@@ -73,11 +69,11 @@ if(isset($_POST['temp']))
               </select>
 
 
-              <button type='submit' class='btn btn-info' name="temp">Enter</button>
-              <input type="text" name = "val" class="form-control" value=""  />
+              <button type='submit' class='btn btn-inverse' name="temp">Enter</button>
+              <div><h3 class="text-primary" style="position:relative;left:80px;"> <b style="color:blue;"></b></h3> </div>
             </div>
 
           </div>
-        </div>
-      </div>
+
+
     <?php } ?>

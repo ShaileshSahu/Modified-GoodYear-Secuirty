@@ -13,6 +13,10 @@ $pwages = $_POST["pwages"];
 $pdays = $_POST["pdays"];
 $additonal = $_POST["additional"];
 $month = $_POST["month"];
+$spit =explode("-",$month);
+
+      $days = cal_days_in_month(CAL_GREGORIAN,$spit[1],$spit[0]);
+      echo $days;
 $result =mysqli_query($data->Connect(),"select * from `$month`");
 if($result==null)
 {
@@ -21,7 +25,7 @@ if($result==null)
 else {
 
 
-$query ="insert into `$month` values($emp_id,$wdays,$rwages,$odays,$owages,$pdays,$pwages,$additonal)";
+$query ="insert into `$month` values($emp_id,$wdays,$rwages,$odays,$owages,$pdays,$pwages,$additonal,$days)";
       $result =mysqli_query($data->Connect(),$query);
 if($result==null)
 {

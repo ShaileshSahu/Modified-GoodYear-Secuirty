@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2018 at 12:36 PM
+-- Generation Time: Feb 07, 2018 at 02:05 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -30,36 +30,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `2018-01` (
   `id` int(11) NOT NULL,
-  `emp_wdays` double NOT NULL,
-  `emp_rwages` float NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
   `emp_odays` int(11) NOT NULL,
-  `emp_owages` double NOT NULL
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `2018-01`
 --
 
-INSERT INTO `2018-01` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`) VALUES
-(324398, 12, 733, 2, 250),
-(324400, 21, 733, 5, 250),
-(324402, 20, 733, 4, 250),
-(324403, 12, 733, 1, 250),
-(324404, 12, 733, 3, 250),
-(324405, 24, 733, 2, 250),
-(324406, 14, 733, 7, 250),
-(324407, 15, 733, 7, 250),
-(324408, 12, 733, 2, 250),
-(324409, 80, 733, 20, 250),
-(324410, 12, 733, 10, 250),
-(324438, 13, 733, 3, 250),
-(324441, 26, 733, 5, 250),
-(324449, 25, 733, 4, 250),
-(324450, 25, 733, 7, 250),
-(324451, 21, 733, 5, 250),
-(324460, 21, 733, 12, 250),
-(324461, 26, 733, 5, 250),
-(324465, 15, 733, 3, 250);
+INSERT INTO `2018-01` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 26, 733, 8, 250, 31, 700, 10, 31);
 
 -- --------------------------------------------------------
 
@@ -69,32 +55,47 @@ INSERT INTO `2018-01` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages
 
 CREATE TABLE `2018-02` (
   `id` int(11) NOT NULL,
-  `emp_wdays` double NOT NULL,
-  `emp_rwages` float NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
   `emp_odays` int(11) NOT NULL,
-  `emp_owages` double NOT NULL
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `2018-02`
 --
 
-INSERT INTO `2018-02` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`) VALUES
-(324398, 26, 733, 10, 250),
-(324399, 12, 733, 2, 250),
-(324404, 25, 733, 5, 250),
-(324405, 23, 733, 6, 250),
-(324406, 15, 733, 10, 250),
-(324407, 15, 733, 2, 250),
-(324408, 20, 733, 6, 250),
-(324409, 20, 733, 5, 250),
-(324410, 12, 733, 12, 250),
-(324438, 15, 733, 5, 250),
-(324449, 26, 733, 5, 250),
-(324450, 25, 733, 5, 250),
-(324451, 26, 733, 5, 250),
-(324460, 22, 733, 5, 250),
-(324463, 26, 733, 5, 250);
+INSERT INTO `2018-02` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 26, 733, 3, 250, 30, 700, 200, 28);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-03`
+--
+
+CREATE TABLE `2018-03` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-03`
+--
+
+INSERT INTO `2018-03` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 21, 899, 3, 543, 23, 888, 200, 31);
 
 -- --------------------------------------------------------
 
@@ -104,18 +105,215 @@ INSERT INTO `2018-02` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages
 
 CREATE TABLE `2018-04` (
   `id` int(11) NOT NULL,
-  `emp_wdays` double NOT NULL,
-  `emp_rwages` float NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
   `emp_odays` int(11) NOT NULL,
-  `emp_owages` double NOT NULL
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `2018-04`
 --
 
-INSERT INTO `2018-04` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`) VALUES
-(324409, 20, 733, 4, 250);
+INSERT INTO `2018-04` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 26, 822, 3, 344, 29, 897, 500, 30);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-05`
+--
+
+CREATE TABLE `2018-05` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-05`
+--
+
+INSERT INTO `2018-05` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 24, 988, 3, 244, 29, 977, 230, 31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-06`
+--
+
+CREATE TABLE `2018-06` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-07`
+--
+
+CREATE TABLE `2018-07` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-07`
+--
+
+INSERT INTO `2018-07` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 23, 733, 5, 250, 24, 700, 23, 31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-08`
+--
+
+CREATE TABLE `2018-08` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-08`
+--
+
+INSERT INTO `2018-08` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 25, 733, 4, 250, 29, 650, 520, 31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-09`
+--
+
+CREATE TABLE `2018-09` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-09`
+--
+
+INSERT INTO `2018-09` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 23, 733, 3, 250, 31, 700, 0, 30);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-10`
+--
+
+CREATE TABLE `2018-10` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-10`
+--
+
+INSERT INTO `2018-10` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 27, 733, 5, 250, 30, 700, 200, 31);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-11`
+--
+
+CREATE TABLE `2018-11` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-11`
+--
+
+INSERT INTO `2018-11` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 26, 733, 10, 250, 30, 700, 1000, 30);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `2018-12`
+--
+
+CREATE TABLE `2018-12` (
+  `id` int(11) NOT NULL,
+  `emp_wdays` int(11) NOT NULL,
+  `emp_rwages` double NOT NULL,
+  `emp_odays` int(11) NOT NULL,
+  `emp_owages` double NOT NULL,
+  `emp_pdays` int(11) NOT NULL,
+  `emp_pwages` double NOT NULL,
+  `emp_addition` double NOT NULL,
+  `emp_days` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `2018-12`
+--
+
+INSERT INTO `2018-12` (`id`, `emp_wdays`, `emp_rwages`, `emp_odays`, `emp_owages`, `emp_pdays`, `emp_pwages`, `emp_addition`, `emp_days`) VALUES
+(324398, 27, 733, 10, 250, 29, 700, 100, 31);
 
 -- --------------------------------------------------------
 
@@ -248,7 +446,7 @@ INSERT INTO `guard_info` (`emp_id`, `emp_name`, `emp_father_name`, `emp_dob`, `e
 (324467, 'AVISHEK DUBEY', 'Mr. dubety', '1945-12-05', 212524563, 2231562, 0, 'male', 'S/G', 5665166, 'nb-vikas nagar ,delhi,110075', '9645414152', 'null', 'RML'),
 (324468, 'ABDESH KUMAR(2802)', 'Mr. Sharma', '1954-12-08', 2147483647, 256456, 23569874, 'male', 'S/G', 23496863, 'NI- 34 UTTAM NAGAR ,DELHI,1100145', '9841262146', 'null', 'RML'),
 (324469, 'ABIHISHEKH(2805)', 'MR. YETISH ', '1987-12-08', 23947176, 266, 0, 'male', 'S/G', 433, 'BN-FATEH PURA UTTAM NAGAR ,Delhi,110085', 'VDVJHBDVJD', 'null', 'RML'),
-(324470, 'AVINASH THAKUR', 'mMR. GIRISH', '1978-12-04', 36363396, 12, 4456, 'male', 'S/G', 445692, 'BV MART HOUSE NUMBER 45 VIKAS PURI  UUTAM NAGAR ,Delhi,110045', '989898989', 'null', 'RML'),
+(324470, 'AVINASH THAKUR', 'mMR. GIRISH', '1978-12-04', 0, 12, 4456, 'male', 'S/G', 445692, 'BV MART HOUSE NUMBER 45 VIKAS PURI  UUTAM NAGAR ,Delhi,110045', '989898989', 'null', 'RML'),
 (324471, 'ANIL CHAND THAKUR', 'Mr. thakur ', '1985-12-02', 247691236, 23566, 52222, 'male', 'S/G', 326352, 'NB- 12 RAM NAGAR ,PUNE,696969', '9656824630', 'null', 'Karol Bagh'),
 (324472, 'BACHCHU SINGH', 'mr. singh', '1978-12-06', 22362, 5698, 56921, 'male', 'S/G', 456816565, 'bh- top floor vikas puri ,delhi,1212121', '9222525135', 'null', 'CGHL'),
 (324473, 'BABU LAL', 'Mr. dal ', '1974-12-06', 56856, 5566, 45624, 'male', 'S/G', 2236133, 'bg- floor ground hastal ,delhi,11056', '9787824662', 'null', 'RML'),
@@ -277,21 +475,9 @@ INSERT INTO `guard_info` (`emp_id`, `emp_name`, `emp_father_name`, `emp_dob`, `e
 (324496, 'GANGA', 'MR TRIPATHI', '1988-12-05', 202565252, 526622, 2245215, 'male', 'S/G', 141441, '56- BLOCK TOP FLOOR VIKAS PURI ,DELHI,110045', '9854542525', 'null', 'India Gate'),
 (324497, 'GANGA SAGAR PANDEY', 'MR PANDAY', '1975-12-11', 2147483647, 2414415, 225252063, 'male', 'S/G', 45452525, 'GH- BLOCK UTTAM NAGAR ,DELHI,11015', '985854666', 'null', 'Karol Bagh'),
 (324498, 'GANPATI CHAUDHARY', 'MR SINGH ', '1985-12-02', 265625422, 2226985, 14412646, 'male', 'House Keeping', 25256944, 'FIRST FLOOR RAM PUR ,MUMBAI,111202', '858545121', 'null', 'RML'),
-(324499, 'GAJANAND', 'MR PRASAN ', '1985-12-05', 252525, 11222424, 5224555, 'male', 'S/G', 22032023, 'FG- BLOCK FIRST SITE KHAN MARKET ,DELHI,110045', '857575454', 'null', 'India Gate');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monthlyupdate`
---
-
-CREATE TABLE `monthlyupdate` (
-  `emp_id` int(10) NOT NULL,
-  `emp_month` date NOT NULL,
-  `emp_wdays` int(10) NOT NULL,
-  `emp_odays` int(10) NOT NULL,
-  `emp_wrate` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(324499, 'GAJANAND', 'MR PRASAN ', '1985-12-05', 252525, 11222424, 5224555, 'male', 'S/G', 22032023, 'FG- BLOCK FIRST SITE KHAN MARKET ,DELHI,110045', '857575454', 'null', 'India Gate'),
+(324500, 'Rohan Mehra', 'Mehra Singh', '1992-02-03', 2147483647, 2031021, 2912101, 'male', 'S/G', 110219201, 'k-6,pipal wala road,Delhi,110059', '920182303', 'null', 'RML'),
+(324501, 'Rohan Mehra', 'Ashutosh', '1978-02-09', 2147483647, 12013402, 121034, 'male', 'S/G', 10210, '203201,Andhra Pradesh,102103', '902013023', 'null', 'RML');
 
 -- --------------------------------------------------------
 
@@ -331,9 +517,63 @@ ALTER TABLE `2018-02`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexes for table `2018-03`
+--
+ALTER TABLE `2018-03`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `2018-04`
 --
 ALTER TABLE `2018-04`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-05`
+--
+ALTER TABLE `2018-05`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-06`
+--
+ALTER TABLE `2018-06`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-07`
+--
+ALTER TABLE `2018-07`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-08`
+--
+ALTER TABLE `2018-08`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-09`
+--
+ALTER TABLE `2018-09`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-10`
+--
+ALTER TABLE `2018-10`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-11`
+--
+ALTER TABLE `2018-11`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `2018-12`
+--
+ALTER TABLE `2018-12`
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -346,12 +586,6 @@ ALTER TABLE `discarded`
 -- Indexes for table `guard_info`
 --
 ALTER TABLE `guard_info`
-  ADD PRIMARY KEY (`emp_id`);
-
---
--- Indexes for table `monthlyupdate`
---
-ALTER TABLE `monthlyupdate`
   ADD PRIMARY KEY (`emp_id`);
 
 --
@@ -374,7 +608,7 @@ ALTER TABLE `discarded`
 -- AUTO_INCREMENT for table `guard_info`
 --
 ALTER TABLE `guard_info`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324500;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324502;
 
 --
 -- AUTO_INCREMENT for table `sitename`
