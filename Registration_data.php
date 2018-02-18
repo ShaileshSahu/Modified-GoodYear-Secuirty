@@ -39,13 +39,17 @@ $emp_pf_no =  $_POST['emp_pf_no'];
   $city = $_POST['city'];
   $emp_address =  $_POST['emp_address'].",".$city.",".$zip;
 
-  // echo $emp_address;
+
+  $file_name = $_FILES['file']['name'];
+  $file_tmp = $_FILES['file']['tmp_name'];
+ move_uploaded_file($file_tmp,"upload/".$file_name);
 
 
+      //upload in mysql database
 
 
   $query =
-  "INSERT INTO `guard_info` (`emp_name`, `emp_father_name`, `emp_dob`, `emp_account_no`, `emp_esic_no`, `emp_pf_no`, `emp_gender`, `emp_designation`, `uan_no`, `emp_address`, `emp_phn`, `emp_image`, `emp_zone`) VALUES ( '$emp_name', '$emp_father_name', '$emp_dob', $emp_account_no, $emp_esic_no, $emp_pf_no, '$emp_gender', '$emp_designation', $emp_uan_no, '$emp_address', '$emp_phn', 'null','$emp_site_name')";
+  "INSERT INTO `guard_info` (`emp_name`, `emp_father_name`, `emp_dob`, `emp_account_no`, `emp_esic_no`, `emp_pf_no`, `emp_gender`, `emp_designation`, `uan_no`, `emp_address`, `emp_phn`, `emp_image`, `emp_zone`) VALUES ( '$emp_name', '$emp_father_name', '$emp_dob', $emp_account_no, $emp_esic_no, $emp_pf_no, '$emp_gender', '$emp_designation', $emp_uan_no, '$emp_address', '$emp_phn', '$file_name','$emp_site_name')";
 
 
 
@@ -74,7 +78,6 @@ $emp_pf_no =  $_POST['emp_pf_no'];
     $_SESSION["phone"]=$emp_phn;
     header('Location: ./Somemoreupdates/mail.php');
   }
-
 
   //echo $emp_gender;
 }

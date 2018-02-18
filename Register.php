@@ -18,7 +18,7 @@
 
 
 
-          <form class="form-control no-margin" action="Registration_data.php" method="post">
+          <form class="form-control no-margin" action="Registration_data.php" method="post" enctype="multipart/form-data" >
           <div class="row-fluid"  style="transform: translate(200px,0px); width:100%">
             <div class="span6">
               <div class="widget">
@@ -175,7 +175,7 @@
                     <hr/>
 
                     <label for="photo">Upload Photo </label>
-                    <input type="file" name="photo" class="span12" id="photo" />
+                    <input type="file" name="file" class="span12" />
       <button type="submit" class="btn btn-info pull-right" name="register">Submit</button>
                     <div class="clearfix"></div>
 

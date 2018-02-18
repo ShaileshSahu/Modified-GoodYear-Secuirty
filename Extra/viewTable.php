@@ -22,6 +22,7 @@
                <th>ESIC NO.</th>
                <th>PF NO.</th>
                <th>Designation</th>
+               <th>Image</th>
                <th>Address</th>
                <th>Phone no.</th>
                <th>Monthly Update</th>
@@ -59,6 +60,7 @@
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_esic_no'] != null ? $row['emp_esic_no'] : '0';?></td>
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?>><?php echo $row['emp_pf_no'] != null ? $row['emp_pf_no'] : '0';?></td>
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_designation'];?></td>
+                 <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><img src="upload/<?php echo $row['emp_image'];?>" alt="emp image" style="width:70px;height:70px;" ></td>
                <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.3);" <?php }?> class="hidden-ph"><?php echo $row['emp_address'];?>
                  </td>
 
