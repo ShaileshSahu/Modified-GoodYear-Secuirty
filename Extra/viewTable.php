@@ -25,6 +25,8 @@
                <th>Image</th>
                <th>Address</th>
                <th>Phone no.</th>
+               <th>Police Ver. No.</th>
+
                <th>Monthly Update</th>
                <th>Update</th>
 
@@ -65,6 +67,9 @@
                  </td>
 
                  <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_phn'];
+                 ?> </td>
+
+                 <td <?php if($row['emp_esic_no'] ==0  || $row['emp_pf_no']==0  || $row['emp_account_no']==0 || $row['uan_no'] ==0 ){?>style="background-color:rgba(125,125,125,0.2);" <?php }?>><?php echo $row['emp_police_no'];
                  ?> </td>
 
       <!.. monthly uodate ..>

@@ -33,7 +33,7 @@
  </head>
  <body>
    <header>
-     <a href="index.html" class="logo">Good Year Security</a></a>
+     <a href="index.html" class="logo">Good Year Security Services</a></a>
      <div id="mini-nav">
         <div class="pull-right">
             <a href="viewSearch.php"><button type="button" class="btn btn-success btn-md" name="button">Home</button></a>
@@ -153,4 +153,4 @@
            </div>
          </div>
 
-         <h1 class="text text-primary" style="color:rgba(0,0,0,.4);text-align:center;">Good Year Security</h1>
+         <h1 class="text text-primary" style="color:rgba(0,0,0,.4);text-align:center;">Good Year Security Services</h1>

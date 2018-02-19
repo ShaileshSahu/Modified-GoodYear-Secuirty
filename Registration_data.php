@@ -37,6 +37,8 @@ $emp_pf_no =  $_POST['emp_pf_no'];
   $emp_site_name= $_POST['emp_site_name'];
   $zip = $_POST['zip'];
   $city = $_POST['city'];
+  $emp_police_no = $_POST['emp_police_no'];
+
   $emp_address =  $_POST['emp_address'].",".$city.",".$zip;
 
 
@@ -49,7 +51,7 @@ $emp_pf_no =  $_POST['emp_pf_no'];
 
 
   $query =
-  "INSERT INTO `guard_info` (`emp_name`, `emp_father_name`, `emp_dob`, `emp_account_no`, `emp_esic_no`, `emp_pf_no`, `emp_gender`, `emp_designation`, `uan_no`, `emp_address`, `emp_phn`, `emp_image`, `emp_zone`) VALUES ( '$emp_name', '$emp_father_name', '$emp_dob', $emp_account_no, $emp_esic_no, $emp_pf_no, '$emp_gender', '$emp_designation', $emp_uan_no, '$emp_address', '$emp_phn', '$file_name','$emp_site_name')";
+  "INSERT INTO `guard_info` (`emp_name`, `emp_father_name`, `emp_dob`, `emp_account_no`, `emp_esic_no`, `emp_pf_no`, `emp_gender`, `emp_designation`, `uan_no`, `emp_address`, `emp_phn`, `emp_image`, `emp_zone`,`emp_police_no`) VALUES ( '$emp_name', '$emp_father_name', '$emp_dob', $emp_account_no, $emp_esic_no, $emp_pf_no, '$emp_gender', '$emp_designation', $emp_uan_no, '$emp_address', '$emp_phn', '$file_name','$emp_site_name',$emp_police_no)";
 
 
 

@@ -164,6 +164,9 @@ while($row= mysqli_fetch_array($result))
         <label>PF NO.<input type="number" class="span" value="<?=$row['emp_pf_no']?>" name="pf">
          </label>
 
+                 <label>Police Verfication No.<input type="number" class="span" value="<?=$row['emp_police_no']?>" name="police">
+                  </label>
+
     </div>
 
     <div class="section"><span>3</span>Zone</div>

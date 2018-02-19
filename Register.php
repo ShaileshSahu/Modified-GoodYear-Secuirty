@@ -69,6 +69,15 @@
                     </div>
                     <!--  ESIC no.  -->
                     <div class="control-group success">
+                      <label class="control-label" for="accno">
+Police Verfication no:
+                      </label>
+                      <div class="controls">
+                        <input type="text" name="emp_police_no" id="police verfication" class="span12" placeholder="Enter Police Verfication Number"  />
+                      </div>
+                    </div>
+
+                    <div class="control-group success">
                       <label class="control-label" for="esic">
                         ESIC no:
                       </label>
